@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- meta characters -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Css Project:- </title>
+
+    <!-- Fontawsome.com > kit> code no.> Java embed code> copy -->
+    <script src="https://kit.fontawesome.com/369860f82a.js" crossorigin="anonymous"></script>
+
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Alkatra&family=Fira+Sans+Extra+Condensed:wght@700&family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Montserrat:wght@400;600&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;1,100;1,200;1,300;1,400&family=Roboto:ital,wght@0,100;0,300;0,400;0,700;1,100&display=swap"
+        rel="stylesheet">
+
+        <!-- css link -->
+        <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <div id="header">
+        <div class="container">
+            <!-- navigation panel -->
+            <nav>
+                <img src="images/logo1.png" alt="logo" class="logo">
+                <ul id="sidemenu">
+                    <li><a href="#header">Home</a></li>
+                    <li><a href="#about">About Myself</a></li>
+                    <li><a href="#services">Skills</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <i class="fa-solid fa-circle-xmark" onclick="closemenu()"></i>
+                </ul>
+                <i class="fa-solid fa-bars" onclick="openmenu()"></i>
+            </nav>
+            <div class="header-text">
+                <!-- description od the person -->
+                <p>Computer Programmer and Analyst</p>
+                <h1>Hello, I'm <span>Sukhpreet</span> Saini</h1>
+            </div>
+        </div>
+    </div>
+    <!-- ---------------------About Myself---------------------- -->
+    <div id="about">
+        <div class="containeer">
+            <div class="row">
+                <div class="about-col-1">
+                    <img src="images/ss2.jpg" alt="">
+                </div>
+                <div class="about-col-2">
+                    <h2 class="sub-title">About Myself</h2>
+                    <p>I am elated to introduce myself as <strong>Sukhpreet Saini</strong> born and bought in <em>New
+                            Delhi India</em>. I have a nuclear family with my mother only. With a childhood dream of
+                        becoming a Computer Engineer like my father, my passion for technology was ignited when I first
+                        interacted with a computer. I approach every challenge with dedication and precision, ensuring
+                        successful completion of diverse projects. Witnessing the impact of delayed diagnosis in my
+                        father's medical condition motivated me to develop a power detection machine, aiming to prevent
+                        such situations in the future. Beyond technology, I find solace in exploring natural landscapes
+                        through painting and enjoy managing data and designing websites for friends and family. My
+                        ambition drives me to make a positive impact in the world of technology and contribute to
+                        building a better and safer future.</p>
+                    <div class="tab-titles">
+                        <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
+                        <p class="tab-links" onclick="opentab('experience')">Experience</p>
+                        <p class="tab-links" onclick="opentab('education')">Education</p>
+                    </div>
+                    <div class="tab-contents active-tab" id="skills">
+                        <ul>
+                            <li><span>Tally Accounting</span></li>
+                            <li><span>Microsoft Office</span></li>
+                            <li><span>Python Connectivity with MySQL</span></li>
+                            <li><span>Data Structure- Queue and Stack</span></li>
+                            <li><span>Network Security</span></li>
+                            <li><span>French For Beginners</span></li>
+                            <li><span>Public Speaking.</span></li>
+                        </ul>
+                    </div>
+                    <div class="tab-contents" id="experience">
+                        <ul>
+                            <li><span>August 2021 to till mid-December 2022</span><br>As Office Assistant at Riyaasat
+                                Group (Pvt. Ltd).</li>
+                            <li><span>August 2023 to current</span><br>As Crew Member at McDonald's (Parry Sound).</b>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="tab-contents" id="education">
+                        <ul>
+                            <li><span>2023 - Current</span><br>Advance Diploma in Computer Programming and Analysis.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ----------services-------- -->
+    <div id="services">
+        <div class="container">
+            <h2 class="sub-title">Elaborating My Skills in Detail</h2>
+            <div class="services-list">
+                <div>
+                    <i class="fa-solid fa-robot"></i>
+                    <h3>Python projects</h3>
+                    <p>Various Python Projects with List, Tuples and so on.</p>
+                    <a href="https://github.com/SUKH2022/python_program">Learn more</a>
+                </div>
+                <div>
+                    <i class="fa-solid fa-gamepad"></i>
+                    <h3>C/C++ projects</h3>
+                    <p>C/C++ Projects with libraries, loops, 2D and 3D arrays and many more.</p>
+                    <a href="https://github.com/SUKH2022/C_and_C_plus_plus_projects">Learn more</a>
+                </div>
+                <div>
+                    <i class="fa-solid fa-code"></i>
+                    <h3>Web Designing</h3>
+                    <p>Several Projects with HTML, CSS and js.</p>
+                    <a href="https://github.com/SUKH2022/P3_Complete_Web_Development_projects">Learn more</a>
+                </div>
+                <div>
+                    <i class="fa-solid fa-medal"></i>
+                    <h3>Hacker Rank platform</h3>
+                    <p>Programs on Hanker Rank.</p>
+                    <a href="https://www.hackerrank.com/sukhpreet_saini1">Learn more</a>
+                </div>
+                <div>
+                    <i class="fa-brands fa-java"></i>
+                    <h3>Java</h3>
+                    <p>Java Programs for error testing.</p>
+                    <a href="https://www.hackerrank.com/sukhpreet_saini1">Learn more</a>
+                </div>
+                <div>
+                    <i class="fa-solid fa-database"></i>
+                    <h3>MySql</h3>
+                    <p>Relational Database interactions</p>
+                    <a href="https://www.hackerrank.com/sukhpreet_saini1">Learn more</a>
+                </div>
+                <div>
+                    <i class="fa-brands fa-php"></i>
+                    <h3>PHP</h3>
+                    <p>Projects with PHP, HTML, CSS and MySQL.</p>
+                    <a href="https://www.hackerrank.com/sukhpreet_saini1">Learn more</a>
+                </div>
+                <div>
+                    <i class="fa-brands fa-linux"></i>
+                    <h3>Linux</h3>
+                    <p>Open Source operating system.</p>
+                    <a href="#">Learn more</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- --------------------------portfolio----------------------------------- -->
+    <div id="portfolio">
+        <div class="container">
+            <h2 class="sub-title">My Certificates</h2>
+            <div class="work-list">
+                <div class="work">
+                    <img src="images/certificate2.png" alt="Python image">
+                    <div class="layer">
+                        <h4>Python Certificate</h4>
+                        <p>This certificate program was provided to the participants with a comprehensive understanding
+                            of the Python programming.</p>
+                        <a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                    </div>
+                </div>
+                <div class="work">
+                    <img src="images/certificate1.png" alt="C/C++ image">
+                    <div class="layer">
+                        <h4>C/C++ Certificate</h4>
+                        <p>This certificate program was provided to the participants with a thorough understanding of
+                            the C and C++ programming languages.</p>
+                        <a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                    </div>
+                </div>
+                <div class="work">
+                    <img src="images/certificate5.png" alt="C# image">
+                    <div class="layer">
+                        <h4>C# Certificate</h4>
+                        <p>Advance C# concepts and hands-on projects to put their newfound knowledge into practice and
+                            develop their coding skills.</p>
+                        <a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                    </div>
+                </div>
+                <div class="work">
+                    <img src="images/certificate.jpg" alt="Tally image">
+                    <div class="layer">
+                        <h4>Tally Certificate</h4>
+                        <p>The program covered topics such as creating company accounts, maintaining ledgers, preparing
+                            invoices, generating financial statements, and using Tally's inventory management features.
+                        </p>
+                        <a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                    </div>
+                </div>
+                <div class="work">
+                    <img src="images/certificate4.png" alt="Office Automation image">
+                    <div class="layer">
+                        <h4>Office Automation Certificate</h4>
+                        <p>This course covered the use of popular office software such as Microsoft Office Suite (Word,
+                            Excel, PowerPoint, and Outlook) as well as other office productivity tools.</p>
+                        <a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                    </div>
+                </div>
+                <div class="work">
+                    <img src="images/french.jpg" alt="French word image">
+                    <div class="layer">
+                        <h4>French for Beginners Certificate</h4>
+                        <p>The program covered fundamental skills such as introducing, asking and answering questions,
+                            basic conversations as well as learned about French culture and customs.</p>
+                        <a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                    </div>
+                </div>
+            </div>
+            <a href="#" class="btn">See more</a>
+        </div>
+    </div>
+    <!-- ===================contact================================ -->
+    <div id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="contact-left">
+                    <h2 class="sub-title">Contact Info.</h2>
+                    <p><i class="fa-solid fa-paper-plane"></i> sukhpreet.saini2020@gmail.com</p>
+                    <p><i class="fa-solid fa-phone"></i> Mobile Number:- +1 6476854689</p>
+                    <!-- div with social icons short hand is div.social-icons -->
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/profile.php?id=100090111294343"><i
+                                class="fa-brands fa-facebook"></i></a>
+                        <a href="https://twitter.com/?lang=en"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/in/sukhpreet-saini-206704273/"><i
+                                class="fa-brands fa-linkedin"></i></a>
+                        <a href="https://web.whatsapp.com/"><i class="fa-brands fa-whatsapp"></i></a>
+                        <a href="https://www.snapchat.com/"><i class="fa-brands fa-snapchat"></i></a>
+                    </div>
+                    <a href="images/Resume_co-op.docx" download class="btn btn2">Download Curriculum Vitae</a>
+                </div>
+                <div class="contact-right">
+                    <form name="submit-to-google-sheet">
+                        <!-- google sheets> add script> save> run> permission review> sign in> advance>go to contact info unsafe  -->
+                        <!-- after run> click deploy> new deployment> fill description means Contact info> who has access to anyone as it is imp> click on deploy.  -->
+                        <!-- google sheets is case sensitive  -->
+                        <input type="text" name="Name" placeholder="Your Name" required>
+                        <input type="email" name="Email" placeholder="Your E-mail" required>
+                        <textarea name="Message" row="6" placeholder="Your Message"></textarea>
+                        <!-- style="height: 233px; width: 647px;" -->
+                        <!-- it is to give more option to design the button -->
+                        <button type="submit" class="btn btn2">Submit</button>
+                    </form>
+                    <span id="msg"></span>
+                </div>
+            </div>
+        </div>
+        <!-- .copyright -->
+        <div class="copyright">
+            <p><i class="fa-solid fa-copyright"></i> Copyrigth Sukhpreet Saini</p>
+        </div>
+    </div>
+    <script>
+        var tablinks = document.getElementsByClassName("tab-links");
+        var tabcontents = document.getElementsByClassName("tab-contents");
+
+        //hide the info and the line below the tab links
+        function opentab(tabname) {
+            for (tablink of tablinks) {
+                tablink.classList.remove("active-link");
+            }
+            for (tabcontent of tabcontents) {
+                tabcontent.classList.remove("active-tab");
+            }
+            //hide the info of first skills and the underline will go to the other tabs
+            event.currentTarget.classList.add("active-link");
+            document.getElementById(tabname).classList.add("active-tab");
+        }
+    </script>
+    <script>
+        var sidemenu = document.getElementById("sidemenu");
+        function openmenu() {
+            sidemenu.style.right = "0";
+        }
+        function closemenu() {
+            sidemenu.style.right = "-200px";
+        }
+    </script>
+    <!-- copied from github -->
+    <script>
+        //https://github.com/jamiewilson/form-to-google-sheets
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbwnorGprtB5YaIUz4DqkSbJ6wjHXtOUX4gJMmq2Fs6kMbjizm_WUcRBZcrZVowREHLo/exec'
+        //copy the name which is submit-to-google-sheet to form name
+        const form = document.forms['submit-to-google-sheet']
+        const msg = document.getElementById("msg")
+
+        //msg in the innerHTML will be display forever so write setTimeout()
+        form.addEventListener('submit', e => {
+            e.preventDefault()
+            fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+                .then(response => {
+                    msg.innerHTML = "Message Sent Successfully"
+                    setTimeout(function () {
+                        msg.innerHTML = ""
+                    }, 5000)
+                    form.reset()
+                })
+                .catch(error => console.error('Error!', error.message))
+        })
+    </script>
+</body>
+
+</html>
