@@ -1,314 +1,648 @@
+<!-- hide the icons for responsive, game in the technical skills, color in those -->
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <!-- meta characters -->
-    <meta charset="UTF-8">
+    <meta charset="UsTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Css Project:- </title>
-
-    <!-- Fontawsome.com > kit> code no.> Java embed code> copy -->
+    <title>Sukhpreet Saini | Tech Innovator</title>
+    
+    <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/369860f82a.js" crossorigin="anonymous"></script>
-
-    <!-- google fonts -->
+    
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Alkatra&family=Fira+Sans+Extra+Condensed:wght@700&family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Montserrat:wght@400;600&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;1,100;1,200;1,300;1,400&family=Roboto:ital,wght@0,100;0,300;0,400;0,700;1,100&display=swap"
-        rel="stylesheet">
-
-        <!-- css link -->
-        <link rel="stylesheet" href="css/style.css">
-
+    <link href="https://fonts.googleapis.com/css2?family=Alkatra&family=Fira+Sans:wght@300;400;600;700&family=Montserrat:wght@400;600&family=Poppins:wght@300;400;500&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
+     <!-- Background Image Container -->
+    <div class="background-container">
+        <img src="images/bg.jpg" alt="Background" class="background-image">
+        <div class="background-overlay"></div>
+    </div>
+    <!-- Loading Animation -->
+    <div class="loader">
+        <div class="neural-network">
+            <div class="node"></div>
+            <div class="node"></div>
+            <div class="node"></div>
+            <div class="connections"></div>
+        </div>
+    </div>
+
+    <!-- Header Section -->
     <div id="header">
         <div class="container">
-            <!-- navigation panel -->
             <nav>
-                <img src="images/logo1.png" alt="logo" class="logo">
+                <div class="logo-container">
+                    <img src="images/logo1.png" alt="logo" class="logo">
+                    <span class="logo-text">SS</span>
+                </div>
                 <ul id="sidemenu">
-                    <li><a href="#header">Home</a></li>
-                    <li><a href="#about">About Myself</a></li>
-                    <li><a href="#services">Skills</a></li>
-                    <li><a href="#portfolio">Portfolio</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#header" class="nav-link">Home</a></li>
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#skills" class="nav-link">Skills</a></li>
+                    <li><a href="#projects" class="nav-link">Projects</a></li>
+                    <li><a href="#certifications" class="nav-link">Certifications</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
                     <i class="fa-solid fa-circle-xmark" onclick="closemenu()"></i>
                 </ul>
                 <i class="fa-solid fa-bars" onclick="openmenu()"></i>
             </nav>
+            
             <div class="header-text">
-                <!-- description od the person -->
-                <p>Computer Programmer and Analyst</p>
-                <h1>Hello, I'm <span>Sukhpreet</span> Saini</h1>
+                <div class="typing-container">
+                    <p class="typing-text">Computer Programmer & Analyst</p>
+                </div>
+                <h1>Hello, I'm <span class="animate-charcter">Sukhpreet Saini</span></h1>
+                <div class="social-header">
+                    <a href="https://github.com/SUKH2022" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/sukhpreet-saini/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://www.hackerrank.com/sukhpreet_saini1" target="_blank"><i class="fab fa-hackerrank"></i></a>
+                </div>
+                <a href="#about" class="scroll-down">
+                    <i class="fas fa-chevron-down"></i>
+                </a>
             </div>
         </div>
     </div>
-    <!-- ---------------------About Myself---------------------- -->
+
+    <!-- About Section -->
     <div id="about">
-        <div class="containeer">
+        <div class="container">
             <div class="row">
                 <div class="about-col-1">
-                    <img src="images/ss2.jpg" alt="">
+                    <div class="profile-container">
+                        <img src="images/ss2.jpg" alt="Sukhpreet Saini" class="profile-img">
+                        <div class="tech-icons">
+                            <i class="fab fa-python" title="Python"></i>
+                            <i class="fab fa-java" title="Java"></i>
+                            <i class="fas fa-database" title="SQL"></i>
+                            <i class="fab fa-js" title="JavaScript"></i>
+                            <i class="fas fa-brain" title="Machine Learning"></i>
+                        </div>
+                    </div>
                 </div>
                 <div class="about-col-2">
-                    <h2 class="sub-title">About Myself</h2>
-                    <p>I am elated to introduce myself as <strong>Sukhpreet Saini</strong> born and bought in <em>New
-                            Delhi India</em>. I have a nuclear family with my mother only. With a childhood dream of
-                        becoming a Computer Engineer like my father, my passion for technology was ignited when I first
-                        interacted with a computer. I approach every challenge with dedication and precision, ensuring
-                        successful completion of diverse projects. Witnessing the impact of delayed diagnosis in my
-                        father's medical condition motivated me to develop a power detection machine, aiming to prevent
-                        such situations in the future. Beyond technology, I find solace in exploring natural landscapes
-                        through painting and enjoy managing data and designing websites for friends and family. My
-                        ambition drives me to make a positive impact in the world of technology and contribute to
-                        building a better and safer future.</p>
+                    <h2 class="sub-title">About Me</h2>
+                    <p>I'm a passionate <strong>Computer Programming & Analysis</strong> student at Georgian College with expertise in <span class="highlight">AI/ML, data analytics, automation,</span> and full-stack development. As a <span class="highlight">six-time Dean's List</span> recipient, I thrive on solving complex problems through innovative technology solutions.</p>
+                    
+                    <div class="stats-container">
+                        <div class="stat-box">
+                            <h3>50+</h3>
+                            <p>Projects</p>
+                        </div>
+                        <div class="stat-box">
+                            <h3>30+</h3>
+                            <p>Certifications</p>
+                        </div>
+                        <div class="stat-box">
+                            <h3>4</h3>
+                            <p>Languages</p>
+                        </div>
+                    </div>
+                    
                     <div class="tab-titles">
-                        <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
-                        <p class="tab-links" onclick="opentab('experience')">Experience</p>
+                        <p class="tab-links active-link" onclick="opentab('experience')">Experience</p>
                         <p class="tab-links" onclick="opentab('education')">Education</p>
+                        <p class="tab-links" onclick="opentab('languages')">Languages</p>
                     </div>
-                    <div class="tab-contents active-tab" id="skills">
-                        <ul>
-                            <li><span>Tally Accounting</span></li>
-                            <li><span>Microsoft Office</span></li>
-                            <li><span>Python Connectivity with MySQL</span></li>
-                            <li><span>Data Structure- Queue and Stack</span></li>
-                            <li><span>Network Security</span></li>
-                            <li><span>French For Beginners</span></li>
-                            <li><span>Public Speaking.</span></li>
-                        </ul>
+                    
+                    <div class="tab-contents active-tab" id="experience">
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <div class="timeline-date">May 2025 - Present</div>
+                                <div class="timeline-content">
+                                    <h4>Co-op Student – Tester</h4>
+                                    <h5>Ontario Public Service</h5>
+                                    <ul>
+                                        <li>Performed unit, system, and user acceptance testing for critical social services applications</li>
+                                        <li>Leveraged IBM Cognos for data analysis and reporting</li>
+                                        <li>Developed comprehensive testing documentation and executed QA processes</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-date">Sep 2024 - Present</div>
+                                <div class="timeline-content">
+                                    <h4>Program Tutor</h4>
+                                    <h5>Georgian College</h5>
+                                    <ul>
+                                        <li>Tutored students in programming, databases, and math concepts</li>
+                                        <li>Covered subjects including Python, JavaScript, SQL, and mainframe systems</li>
+                                        <li>Improved student performance through personalized learning approaches</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="https://www.linkedin.com/in/sukhpreet-saini/" target="_blank" class="btn">View Full Experience</a>
                     </div>
-                    <div class="tab-contents" id="experience">
-                        <ul>
-                            <li><span>August 2021 to till mid-December 2022</span><br>As Digital Operations Assistant at Riyaasat
-                                Group (Pvt. Ltd).</li>
-                            <li><span>August 2023 to current</span><br>As Crew Member at McDonald's (Parry Sound).</b>
-                            </li>
-                        </ul>
-                    </div>
+                    
                     <div class="tab-contents" id="education">
-                        <ul>
-                            <li><span>2023 - Current</span><br>Advance Diploma in Computer Programming and Analysis.
-                            </li>
-                        </ul>
+                        <div class="education-item">
+                            <h4>Advanced Diploma in Computer Programming & Analysis</h4>
+                            <h5>Georgian College | 2023-2025</h5>
+                            <p>Dean's List (6 consecutive terms)</p>
+                            <p>Specialized in AI/ML, data analytics, and automation</p>
+                        </div>
+                        <div class="education-item">
+                            <h4>High School Diploma - PCM with Computer Science</h4>
+                            <h5>S.S Mota Singh Senior Secondary School | 2020-2022</h5>
+                        </div>
+                    </div>
+                    
+                    <div class="tab-contents" id="languages">
+                        <div class="language-container">
+                            <div class="language-item">
+                                <h4>English</h4>
+                                <div class="language-bar">
+                                    <div class="language-progress" style="width: 95%"></div>
+                                </div>
+                                <span>Professional Proficiency</span>
+                            </div>
+                            <div class="language-item">
+                                <h4>Punjabi</h4>
+                                <div class="language-bar">
+                                    <div class="language-progress" style="width: 100%"></div>
+                                </div>
+                                <span>Native</span>
+                            </div>
+                            <div class="language-item">
+                                <h4>Hindi</h4>
+                                <div class="language-bar">
+                                    <div class="language-progress" style="width: 100%"></div>
+                                </div>
+                                <span>Native</span>
+                            </div>
+                            <div class="language-item">
+                                <h4>French</h4>
+                                <div class="language-bar">
+                                    <div class="language-progress" style="width: 60%"></div>
+                                </div>
+                                <span>Intermediate</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- ----------services-------- -->
-    <div id="services">
+
+    <!-- Skills Section -->
+    <div id="skills">
         <div class="container">
-            <h2 class="sub-title">Elaborating My Skills in Detail</h2>
-            <div class="services-list">
-                <div>
-                    <i class="fa-solid fa-robot"></i>
-                    <h3>Python projects</h3>
-                    <p>Various Python Projects with List, Tuples and so on.</p>
-                    <a href="https://github.com/SUKH2022/python_program">Learn more</a>
+            <h2 class="sub-title">Technical Skills</h2>
+            <div class="skills-container">
+                <div class="skills-category">
+                    <h3><i class="fas fa-laptop-code"></i> Programming</h3>
+                    <div class="skills-grid">
+                        <div class="skill-item" data-level="90">
+                            <span>Python</span>
+                            <div class="skill-bar"></div>
+                        </div>
+                        <div class="skill-item" data-level="85">
+                            <span>Java</span>
+                            <div class="skill-bar"></div>
+                        </div>
+                        <div class="skill-item" data-level="80">
+                            <span>C/C++</span>
+                            <div class="skill-bar"></div>
+                        </div>
+                        <div class="skill-item" data-level="85">
+                            <span>JavaScript</span>
+                            <div class="skill-bar"></div>
+                        </div>
+                    </div>
                 </div>
-                <div>
-                    <i class="fa-solid fa-gamepad"></i>
-                    <h3>C/C++ projects</h3>
-                    <p>C/C++ Projects with libraries, loops, 2D and 3D arrays and many more.</p>
-                    <a href="https://github.com/SUKH2022/C_and_C_plus_plus_projects">Learn more</a>
+                
+                <div class="skills-category">
+                    <h3><i class="fas fa-brain"></i> AI/ML & Data</h3>
+                    <div class="skills-grid">
+                        <div class="skill-item" data-level="80">
+                            <span>Machine Learning</span>
+                            <div class="skill-bar"></div>
+                        </div>
+                        <div class="skill-item" data-level="75">
+                            <span>Data Analytics</span>
+                            <div class="skill-bar"></div>
+                        </div>
+                        <div class="skill-item" data-level="70">
+                            <span>Deep Learning</span>
+                            <div class="skill-bar"></div>
+                        </div>
+                        <div class="skill-item" data-level="85">
+                            <span>SQL</span>
+                            <div class="skill-bar"></div>
+                        </div>
+                    </div>
                 </div>
-                <div>
-                    <i class="fa-solid fa-code"></i>
-                    <h3>Web Designing</h3>
-                    <p>Several Projects with HTML, CSS and js.</p>
-                    <a href="https://github.com/SUKH2022/P3_Complete_Web_Development_projects">Learn more</a>
+                
+                <div class="skills-category">
+                    <h3><i class="fas fa-code"></i> Web Development</h3>
+                    <div class="skills-grid">
+                        <div class="skill-item" data-level="90">
+                            <span>HTML/CSS</span>
+                            <div class="skill-bar"></div>
+                        </div>
+                        <div class="skill-item" data-level="80">
+                            <span>React</span>
+                            <div class="skill-bar"></div>
+                        </div>
+                        <div class="skill-item" data-level="75">
+                            <span>Node.js</span>
+                            <div class="skill-bar"></div>
+                        </div>
+                        <div class="skill-item" data-level="85">
+                            <span>PHP</span>
+                            <div class="skill-bar"></div>
+                        </div>
+                    </div>
                 </div>
-                <div>
-                    <i class="fa-solid fa-medal"></i>
-                    <h3>Hacker Rank platform</h3>
-                    <p>Programs on Hanker Rank.</p>
-                    <a href="https://www.hackerrank.com/sukhpreet_saini1">Learn more</a>
+                
+                <div class="skills-category">
+                    <h3><i class="fas fa-cogs"></i> Tools & Platforms</h3>
+                    <div class="skills-grid">
+                        <div class="skill-item" data-level="80">
+                            <span>Git</span>
+                            <div class="skill-bar"></div>
+                        </div>
+                        <div class="skill-item" data-level="75">
+                            <span>Azure</span>
+                            <div class="skill-bar"></div>
+                        </div>
+                        <div class="skill-item" data-level="70">
+                            <span>Power BI</span>
+                            <div class="skill-bar"></div>
+                        </div>
+                        <div class="skill-item" data-level="85">
+                            <span>Linux</span>
+                            <div class="skill-bar"></div>
+                        </div>
+                    </div>
                 </div>
-                <div>
-                    <i class="fa-brands fa-java"></i>
-                    <h3>Java</h3>
-                    <p>Java Programs for error testing.</p>
-                    <a href="https://www.hackerrank.com/sukhpreet_saini1">Learn more</a>
+            </div>
+            
+            <div class="github-stats">
+                <h3><i class="fab fa-github"></i> GitHub Contributions</h3>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <i class="fas fa-code-branch"></i>
+                        <h4>90+</h4>
+                        <p>Repositories</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-code"></i>
+                        <h4>100k+</h4>
+                        <p>Lines of Code</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-star"></i>
+                        <h4>30+</h4>
+                        <p>Project Stars</p>
+                    </div>
                 </div>
-                <div>
-                    <i class="fa-solid fa-database"></i>
-                    <h3>MySql</h3>
-                    <p>Relational Database interactions</p>
-                    <a href="https://www.hackerrank.com/sukhpreet_saini1">Learn more</a>
-                </div>
-                <div>
-                    <i class="fa-brands fa-php"></i>
-                    <h3>PHP</h3>
-                    <p>Projects with PHP, HTML, CSS and MySQL.</p>
-                    <a href="https://www.hackerrank.com/sukhpreet_saini1">Learn more</a>
-                </div>
-                <div>
-                    <i class="fa-brands fa-linux"></i>
-                    <h3>Linux</h3>
-                    <p>Open Source operating system.</p>
-                    <a href="#">Learn more</a>
-                </div>
+                <a href="https://github.com/SUKH2022" target="_blank" class="btn">View GitHub Profile</a>
             </div>
         </div>
     </div>
-    <!-- --------------------------portfolio----------------------------------- -->
-    <div id="portfolio">
+
+    <!-- Projects Section -->
+    <div id="projects">
         <div class="container">
-            <h2 class="sub-title">My Certificates</h2>
-            <div class="work-list">
-                <div class="work">
-                    <img src="images/certificate2.png" alt="Python image">
-                    <div class="layer">
-                        <h4>Python Certificate</h4>
-                        <p>This certificate program was provided to the participants with a comprehensive understanding
-                            of the Python programming.</p>
-                        <a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            <h2 class="sub-title">Featured Projects</h2>
+            <div class="projects-filter">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="ai">AI/ML</button>
+                <button class="filter-btn" data-filter="web">Web</button>
+                <button class="filter-btn" data-filter="data">Data</button>
+                <button class="filter-btn" data-filter="automation">Automation</button>
+            </div>
+            
+            <div class="projects-grid">
+                <div class="project-card" data-category="ai">
+                    <div class="project-img">
+                        <img src="images/ai-project.jpg" alt="AI Project">
+                        <div class="project-links">
+                            <a href="#"><i class="fas fa-link"></i></a>
+                            <a href="#"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Medical Diagnosis AI</h3>
+                        <p>Machine learning model for early disease detection using Python and TensorFlow</p>
+                        <div class="project-tags">
+                            <span>Python</span>
+                            <span>TensorFlow</span>
+                            <span>Data Analysis</span>
+                        </div>
                     </div>
                 </div>
-                <div class="work">
-                    <img src="images/certificate1.png" alt="C/C++ image">
-                    <div class="layer">
-                        <h4>C/C++ Certificate</h4>
-                        <p>This certificate program was provided to the participants with a thorough understanding of
-                            the C and C++ programming languages.</p>
-                        <a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                
+                <div class="project-card" data-category="web">
+                    <div class="project-img">
+                        <img src="images/web-project.jpg" alt="Web Project">
+                        <div class="project-links">
+                            <a href="#"><i class="fas fa-link"></i></a>
+                            <a href="#"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Automated Business Dashboard</h3>
+                        <p>Real-time analytics dashboard with React and Power BI integration</p>
+                        <div class="project-tags">
+                            <span>React</span>
+                            <span>Node.js</span>
+                            <span>Power BI</span>
+                        </div>
                     </div>
                 </div>
-                <div class="work">
-                    <img src="images/certificate5.png" alt="C# image">
-                    <div class="layer">
-                        <h4>C# Certificate</h4>
-                        <p>Advance C# concepts and hands-on projects to put their newfound knowledge into practice and
-                            develop their coding skills.</p>
-                        <a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                
+                <div class="project-card" data-category="data">
+                    <div class="project-img">
+                        <img src="images/data-project.jpg" alt="Data Project">
+                        <div class="project-links">
+                            <a href="#"><i class="fas fa-link"></i></a>
+                            <a href="#"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Sales Forecasting System</h3>
+                        <p>Predictive analytics tool using time series analysis</p>
+                        <div class="project-tags">
+                            <span>Python</span>
+                            <span>Pandas</span>
+                            <span>Matplotlib</span>
+                        </div>
                     </div>
                 </div>
-                <div class="work">
-                    <img src="images/certificate.jpg" alt="Tally image">
-                    <div class="layer">
-                        <h4>Tally Certificate</h4>
-                        <p>The program covered topics such as creating company accounts, maintaining ledgers, preparing
-                            invoices, generating financial statements, and using Tally's inventory management features.
-                        </p>
-                        <a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                
+                <div class="project-card" data-category="automation">
+                    <div class="project-img">
+                        <img src="images/automation-project.jpg" alt="Automation Project">
+                        <div class="project-links">
+                            <a href="#"><i class="fas fa-link"></i></a>
+                            <a href="#"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Document Processing Automation</h3>
+                        <p>Automated PDF processing and data extraction system</p>
+                        <div class="project-tags">
+                            <span>Python</span>
+                            <span>PyPDF2</span>
+                            <span>Automation</span>
+                        </div>
                     </div>
                 </div>
-                <div class="work">
-                    <img src="images/certificate4.png" alt="Office Automation image">
-                    <div class="layer">
-                        <h4>Office Automation Certificate</h4>
-                        <p>This course covered the use of popular office software such as Microsoft Office Suite (Word,
-                            Excel, PowerPoint, and Outlook) as well as other office productivity tools.</p>
-                        <a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                
+                <div class="project-card" data-category="ai">
+                    <div class="project-img">
+                        <img src="images/nlp-project.jpg" alt="NLP Project">
+                        <div class="project-links">
+                            <a href="#"><i class="fas fa-link"></i></a>
+                            <a href="#"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Multilingual Chatbot</h3>
+                        <p>AI-powered chatbot with NLP capabilities in multiple languages</p>
+                        <div class="project-tags">
+                            <span>Python</span>
+                            <span>NLTK</span>
+                            <span>NLP</span>
+                        </div>
                     </div>
                 </div>
-                <div class="work">
-                    <img src="images/french.jpg" alt="French word image">
-                    <div class="layer">
-                        <h4>French for Beginners Certificate</h4>
-                        <p>The program covered fundamental skills such as introducing, asking and answering questions,
-                            basic conversations as well as learned about French culture and customs.</p>
-                        <a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                
+                <div class="project-card" data-category="web">
+                    <div class="project-img">
+                        <img src="images/ecommerce-project.jpg" alt="E-commerce Project">
+                        <div class="project-links">
+                            <a href="#"><i class="fas fa-link"></i></a>
+                            <a href="#"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>E-commerce Analytics Platform</h3>
+                        <p>Full-stack application with real-time sales analytics</p>
+                        <div class="project-tags">
+                            <span>MERN Stack</span>
+                            <span>MongoDB</span>
+                            <span>Chart.js</span>
+                        </div>
                     </div>
                 </div>
             </div>
-            <a href="#" class="btn">See more</a>
+            
+            <a href="https://github.com/SUKH2022" target="_blank" class="btn">View All Projects</a>
         </div>
     </div>
-    <!-- ===================contact================================ -->
+
+    <!-- Certifications Section -->
+    <div id="certifications">
+        <div class="container">
+            <h2 class="sub-title">Certifications & Achievements</h2>
+            <div class="cert-tabs">
+                <button class="cert-tab active" data-tab="tech">Technical</button>
+                <button class="cert-tab" data-tab="ai">AI/ML</button>
+                <button class="cert-tab" data-tab="data">Data</button>
+                <button class="cert-tab" data-tab="soft">Professional</button>
+            </div>
+            
+            <div class="cert-content active" id="tech-certs">
+                <div class="cert-slider">
+                    <div class="cert-slide">
+                        <div class="cert-card">
+                            <img src="images/azure-cert.jpg" alt="Azure Certification">
+                            <div class="cert-info">
+                                <h3>Microsoft Certified: Azure Fundamentals</h3>
+                                <p>Issued: Sep 2023 | Microsoft</p>
+                                <a href="#" class="btn btn-small">View Credential</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cert-slide">
+                        <div class="cert-card">
+                            <img src="images/java-cert.jpg" alt="Java Certification">
+                            <div class="cert-info">
+                                <h3>Java Programming Certification</h3>
+                                <p>Issued: May 2024 | Aptech</p>
+                                <a href="#" class="btn btn-small">View Credential</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cert-slide">
+                        <div class="cert-card">
+                            <img src="images/c-cert.jpg" alt="C/C++ Certification">
+                            <div class="cert-info">
+                                <h3>C/C++ Programming Certification</h3>
+                                <p>Issued: Dec 2022 | Aptech</p>
+                                <a href="#" class="btn btn-small">View Credential</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="cert-content" id="ai-certs">
+                <div class="cert-slider">
+                    <div class="cert-slide">
+                        <div class="cert-card">
+                            <img src="images/ai-cert.jpg" alt="AI Certification">
+                            <div class="cert-info">
+                                <h3>Artificial Intelligence Fundamentals</h3>
+                                <p>Issued: Sep 2024 | Great Learning</p>
+                                <a href="#" class="btn btn-small">View Credential</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cert-slide">
+                        <div class="cert-card">
+                            <img src="images/ml-cert.jpg" alt="ML Certification">
+                            <div class="cert-info">
+                                <h3>Machine Learning with Python</h3>
+                                <p>Issued: Jun 2024 | LinkedIn Learning</p>
+                                <a href="#" class="btn btn-small">View Credential</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cert-slide">
+                        <div class="cert-card">
+                            <img src="images/nlp-cert.jpg" alt="NLP Certification">
+                            <div class="cert-info">
+                                <h3>Natural Language Processing</h3>
+                                <p>Issued: Sep 2024 | Great Learning</p>
+                                <a href="#" class="btn btn-small">View Credential</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="awards-container">
+                <h3>Achievements</h3>
+                <div class="awards-grid">
+                    <div class="award-card">
+                        <i class="fas fa-award"></i>
+                        <h4>Dean's List</h4>
+                        <p>Georgian College (6 consecutive terms)</p>
+                    </div>
+                    <div class="award-card">
+                        <i class="fas fa-medal"></i>
+                        <h4>McDonald's Scholarship</h4>
+                        <p>Awarded for academic excellence</p>
+                    </div>
+                    <div class="award-card">
+                        <i class="fas fa-trophy"></i>
+                        <h4>Employee of the Month</h4>
+                        <p>McDonald's Canada</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Section -->
     <div id="contact">
         <div class="container">
             <div class="row">
                 <div class="contact-left">
-                    <h2 class="sub-title">Contact Info.</h2>
+                    <h2 class="sub-title">Contact Me</h2>
                     <p><i class="fa-solid fa-paper-plane"></i> sukhpreet.saini2020@gmail.com</p>
-                    <p><i class="fa-solid fa-phone"></i> Mobile Number:- +1 6476854689</p>
-                    <!-- div with social icons short hand is div.social-icons -->
+                    <p><i class="fa-solid fa-phone"></i> +1 6476854689</p>
+                    <p><i class="fa-solid fa-location-dot"></i> Barrie, Ontario, Canada</p>
+                    
                     <div class="social-icons">
-                        <a href="https://www.facebook.com/profile.php?id=100090111294343"><i
-                                class="fa-brands fa-facebook"></i></a>
-                        <a href="https://twitter.com/?lang=en"><i class="fa-brands fa-twitter"></i></a>
-                        <a href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i></a>
-                        <a href="https://www.linkedin.com/in/sukhpreet-saini/"><i
-                                class="fa-brands fa-linkedin"></i></a>
-                        <a href="https://web.whatsapp.com/"><i class="fa-brands fa-whatsapp"></i></a>
-                        <a href="https://www.snapchat.com/"><i class="fa-brands fa-snapchat"></i></a>
+                        <a href="https://www.linkedin.com/in/sukhpreet-saini/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/SUKH2022" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="https://www.hackerrank.com/sukhpreet_saini1" target="_blank"><i class="fab fa-hackerrank"></i></a>
+                        <a href="https://twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
                     </div>
-                    <a href="images/UpdatedResume.pdf" download class="btn btn2">Download Curriculum Vitae</a>
+                    
+                    <a href="images/UpdatedResume.pdf" download class="btn btn2">
+                        <i class="fas fa-download"></i> Download Resume
+                    </a>
                 </div>
+                
                 <div class="contact-right">
-                    <form name="submit-to-google-sheet">
-                        <!-- google sheets> add script> save> run> permission review> sign in> advance>go to contact info unsafe  -->
-                        <!-- after run> click deploy> new deployment> fill description means Contact info> who has access to anyone as it is imp> click on deploy.  -->
-                        <!-- google sheets is case sensitive  -->
+                    <form name="submit-to-google-sheet" id="contact-form">
                         <input type="text" name="Name" placeholder="Your Name" required>
-                        <input type="email" name="Email" placeholder="Your E-mail" required>
-                        <textarea name="Message" row="6" placeholder="Your Message"></textarea>
-                        <!-- style="height: 233px; width: 647px;" -->
-                        <!-- it is to give more option to design the button -->
-                        <button type="submit" class="btn btn2">Submit</button>
+                        <input type="email" name="Email" placeholder="Your Email" required>
+                        <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
+                        <button type="submit" class="btn btn2">
+                            <span class="submit-text">Send Message</span>
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
                     </form>
                     <span id="msg"></span>
                 </div>
             </div>
         </div>
-        <!-- .copyright -->
-        <div class="copyright">
-            <p><i class="fa-solid fa-copyright"></i> Copyrigth Sukhpreet Saini</p>
-        </div>
     </div>
-    <script>
-        var tablinks = document.getElementsByClassName("tab-links");
-        var tabcontents = document.getElementsByClassName("tab-contents");
 
-        //hide the info and the line below the tab links
-        function opentab(tabname) {
-            for (tablink of tablinks) {
-                tablink.classList.remove("active-link");
-            }
-            for (tabcontent of tabcontents) {
-                tabcontent.classList.remove("active-tab");
-            }
-            //hide the info of first skills and the underline will go to the other tabs
-            event.currentTarget.classList.add("active-link");
-            document.getElementById(tabname).classList.add("active-tab");
-        }
-    </script>
+    <!-- Footer -->
+    <footer>
+        <div class="copyright">
+            <p><i class="fa-solid fa-copyright"></i> 2023 Sukhpreet Saini. All rights reserved.</p>
+        </div>
+        <a href="#header" class="back-to-top">
+            <i class="fas fa-arrow-up"></i>
+        </a>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/script.js"></script>
     <script>
-        var sidemenu = document.getElementById("sidemenu");
-        function openmenu() {
-            sidemenu.style.right = "0";
-        }
-        function closemenu() {
-            sidemenu.style.right = "-200px";
-        }
-    </script>
-    <!-- copied from github -->
-    <script>
-        //https://github.com/jamiewilson/form-to-google-sheets
+        // Google Sheets Form Submission
         const scriptURL = 'https://script.google.com/macros/s/AKfycbwnorGprtB5YaIUz4DqkSbJ6wjHXtOUX4gJMmq2Fs6kMbjizm_WUcRBZcrZVowREHLo/exec'
-        //copy the name which is submit-to-google-sheet to form name
         const form = document.forms['submit-to-google-sheet']
         const msg = document.getElementById("msg")
+        const submitBtn = document.querySelector('#contact-form button[type="submit"]');
 
-        //msg in the innerHTML will be display forever so write setTimeout()
         form.addEventListener('submit', e => {
             e.preventDefault()
-            fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+            
+            // Show loading state
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+            submitBtn.disabled = true;
+            
+            fetch(scriptURL, { method: 'POST', body: new FormData(form)})
                 .then(response => {
-                    msg.innerHTML = "Message Sent Successfully"
-                    setTimeout(function () {
+                    msg.innerHTML = "Message sent successfully!";
+                    setTimeout(function() {
                         msg.innerHTML = ""
                     }, 5000)
                     form.reset()
+                    
+                    // Reset button state
+                    submitBtn.innerHTML = '<span class="submit-text">Message Sent!</span> <i class="fas fa-check"></i>';
+                    setTimeout(() => {
+                        submitBtn.innerHTML = '<span class="submit-text">Send Message</span> <i class="fas fa-paper-plane"></i>';
+                        submitBtn.disabled = false;
+                    }, 3000);
                 })
-                .catch(error => console.error('Error!', error.message))
+                .catch(error => {
+                    console.error('Error!', error.message)
+                    msg.innerHTML = "Error sending message. Please try again.";
+                    
+                    // Reset button state
+                    submitBtn.innerHTML = '<span class="submit-text">Error - Try Again</span> <i class="fas fa-exclamation-circle"></i>';
+                    setTimeout(() => {
+                        submitBtn.innerHTML = '<span class="submit-text">Send Message</span> <i class="fas fa-paper-plane"></i>';
+                        submitBtn.disabled = false;
+                    }, 3000);
+                })
         })
     </script>
 </body>
-
-</html>
+</html> 
