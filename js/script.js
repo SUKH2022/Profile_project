@@ -6,15 +6,14 @@ window.addEventListener('load', function() {
     }, 1500);
 });
 
-// Mobile Menu Toggle
 function openmenu() {
     const sidemenu = document.getElementById('sidemenu');
-    sidemenu.style.right = "0";
+    sidemenu.classList.add('active');
 }
 
 function closemenu() {
     const sidemenu = document.getElementById('sidemenu');
-    sidemenu.style.right = "-200px";
+    sidemenu.classList.remove('active');
 }
 
 // Tab Switching
@@ -86,25 +85,34 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // Skill Bar Animation
+// Skill Bar Animation
 document.addEventListener('DOMContentLoaded', function() {
     const skillItems = document.querySelectorAll('.skill-item');
     
-    skillItems.forEach(item => {
-        const level = item.getAttribute('data-level');
-        const bar = item.querySelector('.skill-bar');
-        
-        // Animate skill bars when they come into view
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    bar.style.width = `${level}%`;
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.5 });
-        
-        observer.observe(item);
-    });
+    const animateSkillBars = () => {
+        skillItems.forEach(item => {
+            const level = item.getAttribute('data-level');
+            const bar = item.querySelector('.skill-bar');
+            if (bar) {
+                bar.style.setProperty('--width', level + '%');
+            }
+        });
+    };
+
+    // Animate when skills section is in view
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                animateSkillBars();
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.5 });
+
+    const skillsSection = document.getElementById('skills');
+    if (skillsSection) {
+        observer.observe(skillsSection);
+    }
 });
 
 // Back to Top Button

@@ -24,6 +24,51 @@ body {
     overflow-x: hidden;
 }
 
+/* Hide mobile menu icons by default */
+.mobile-menu-icon {
+    display: none;
+}
+
+/* Show mobile menu icons only on mobile */
+@media only screen and (max-width: 768px) {
+    .mobile-menu-icon {
+        display: block;
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        font-size: 1.5rem;
+        color: white;
+        cursor: pointer;
+        z-index: 101;
+    }
+    
+    .fa-bars {
+        /* Show hamburger menu */
+        display: block;
+    }
+    
+    .fa-circle-xmark {
+        /* Initially hide close icon */
+        display: none;
+    }
+    
+    /* When menu is open */
+    #sidemenu.active {
+        right: 0;
+    }
+    
+    #sidemenu.active ~ .fa-bars {
+        display: none;
+    }
+    
+    #sidemenu.active .fa-circle-xmark {
+        display: block;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+    }
+}
+
 .container {
     padding: 2rem 10%;
     max-width: 1400px;
@@ -402,8 +447,8 @@ nav ul li a:hover::after {
 
 .timeline-date {
     position: absolute;
-    left: 0;
-    top: 1rem;
+    left: -80px;
+    top: 6rem;
     width: 100px;
     text-align: right;
     color: var(--gray-color);
@@ -553,22 +598,35 @@ nav ul li a:hover::after {
     font-size: 0.9rem;
 }
 
+/* Skill Bars Styling */
 .skill-bar {
     height: 8px;
     background: rgba(255, 255, 255, 0.1);
     border-radius: 4px;
+    margin-bottom: 0.3rem;
     overflow: hidden;
+    position: relative;
 }
 
 .skill-bar::after {
     content: '';
-    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
     height: 100%;
-    background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
-    border-radius: 4px;
     width: 0;
+    background: linear-gradient(90deg, #ff004f, #08fdd8);
+    border-radius: 4px;
     transition: width 1.5s ease;
 }
+
+/* JavaScript will set the width based on data-level */
+.skill-item[data-level="90"] .skill-bar::after { width: 90%; }
+.skill-item[data-level="85"] .skill-bar::after { width: 85%; }
+.skill-item[data-level="80"] .skill-bar::after { width: 80%; }
+.skill-item[data-level="75"] .skill-bar::after { width: 75%; }
+.skill-item[data-level="70"] .skill-bar::after { width: 70%; }
+.skill-item[data-level="65"] .skill-bar::after { width: 65%; }
 
 .github-stats {
     margin-top: 4rem;

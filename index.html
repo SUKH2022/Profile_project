@@ -54,9 +54,11 @@
                     <li><a href="#projects" class="nav-link">Projects</a></li>
                     <li><a href="#certifications" class="nav-link">Certifications</a></li>
                     <li><a href="#contact" class="nav-link">Contact</a></li>
-                    <i class="fa-solid fa-circle-xmark" onclick="closemenu()"></i>
+                    <!-- Close icon will be hidden on desktop -->
+                    <i class="fa-solid fa-circle-xmark mobile-menu-icon" onclick="closemenu()"></i>
                 </ul>
-                <i class="fa-solid fa-bars" onclick="openmenu()"></i>
+                <!-- Hamburger menu will be hidden on desktop -->
+                <i class="fa-solid fa-bars mobile-menu-icon" onclick="openmenu()"></i>
             </nav>
             
             <div class="header-text">
@@ -144,6 +146,7 @@
                                 </div>
                             </div>
                         </div>
+                        <br><br>
                         <a href="https://www.linkedin.com/in/sukhpreet-saini/" target="_blank" class="btn">View Full Experience</a>
                     </div>
                     
@@ -203,17 +206,17 @@
             <h2 class="sub-title">Technical Skills</h2>
             <div class="skills-container">
                 <div class="skills-category">
-                    <h3><i class="fas fa-laptop-code"></i> Programming</h3>
+                    <h3><i class="fas fa-laptop-code"></i> Programming Languages</h3>
                     <div class="skills-grid">
                         <div class="skill-item" data-level="90">
                             <span>Python</span>
                             <div class="skill-bar"></div>
                         </div>
-                        <div class="skill-item" data-level="85">
+                        <div class="skill-item" data-level="80">
                             <span>Java</span>
                             <div class="skill-bar"></div>
                         </div>
-                        <div class="skill-item" data-level="80">
+                        <div class="skill-item" data-level="85">
                             <span>C/C++</span>
                             <div class="skill-bar"></div>
                         </div>
@@ -221,17 +224,25 @@
                             <span>JavaScript</span>
                             <div class="skill-bar"></div>
                         </div>
+                        <div class="skill-item" data-level="85">
+                            <span>Swift</span>
+                            <div class="skill-bar"></div>
+                        </div>
+                        <div class="skill-item" data-level="85">
+                            <span>PHP</span>
+                            <div class="skill-bar"></div>
+                        </div>
                     </div>
                 </div>
                 
                 <div class="skills-category">
-                    <h3><i class="fas fa-brain"></i> AI/ML & Data</h3>
+                    <h3><i class="fas fa-brain"></i> AI/ML & Data Science</h3>
                     <div class="skills-grid">
                         <div class="skill-item" data-level="80">
                             <span>Machine Learning</span>
                             <div class="skill-bar"></div>
                         </div>
-                        <div class="skill-item" data-level="75">
+                        <div class="skill-item" data-level="85">
                             <span>Data Analytics</span>
                             <div class="skill-bar"></div>
                         </div>
@@ -239,8 +250,16 @@
                             <span>Deep Learning</span>
                             <div class="skill-bar"></div>
                         </div>
-                        <div class="skill-item" data-level="85">
+                        <div class="skill-item" data-level="90">
                             <span>SQL</span>
+                            <div class="skill-bar"></div>
+                        </div>
+                        <div class="skill-item" data-level="85">
+                            <span>Jupyter Notebook</span>
+                            <div class="skill-bar"></div>
+                        </div>
+                        <div class="skill-item" data-level="80">
+                            <span>Mainframes</span>
                             <div class="skill-bar"></div>
                         </div>
                     </div>
@@ -257,12 +276,52 @@
                             <span>React</span>
                             <div class="skill-bar"></div>
                         </div>
-                        <div class="skill-item" data-level="75">
+                        <div class="skill-item" data-level="85">
                             <span>Node.js</span>
                             <div class="skill-bar"></div>
                         </div>
                         <div class="skill-item" data-level="85">
                             <span>PHP</span>
+                            <div class="skill-bar"></div>
+                        </div>
+                        <div class="skill-item" data-level="80">
+                            <span>Sass/SCSS</span>
+                            <div class="skill-bar"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="skills-category">
+                    <h3><i class="fas fa-gamepad"></i> Game Development</h3>
+                    <div class="skills-grid">
+                        <div class="skill-item" data-level="85">
+                            <span>Unity</span>
+                            <div class="skill-bar"></div>
+                        </div>
+                        <div class="skill-item" data-level="90">
+                            <span>Unreal Engine</span>
+                            <div class="skill-bar"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="skills-category">
+                    <h3><i class="fas fa-paint-brush"></i> Design & Multimedia</h3>
+                    <div class="skills-grid">
+                        <div class="skill-item" data-level="80">
+                            <span>Adobe Illustrator</span>
+                            <div class="skill-bar"></div>
+                        </div>
+                        <div class="skill-item" data-level="85">
+                            <span>Adobe Photoshop</span>
+                            <div class="skill-bar"></div>
+                        </div>
+                        <div class="skill-item" data-level="90">
+                            <span>GIMP</span>
+                            <div class="skill-bar"></div>
+                        </div>
+                        <div class="skill-item" data-level="90">
+                            <span>Audacity</span>
                             <div class="skill-bar"></div>
                         </div>
                     </div>
@@ -271,20 +330,24 @@
                 <div class="skills-category">
                     <h3><i class="fas fa-cogs"></i> Tools & Platforms</h3>
                     <div class="skills-grid">
-                        <div class="skill-item" data-level="80">
+                        <div class="skill-item" data-level="90">
                             <span>Git</span>
                             <div class="skill-bar"></div>
                         </div>
-                        <div class="skill-item" data-level="75">
+                        <div class="skill-item" data-level="85">
                             <span>Azure</span>
                             <div class="skill-bar"></div>
                         </div>
-                        <div class="skill-item" data-level="70">
+                        <div class="skill-item" data-level="90">
                             <span>Power BI</span>
                             <div class="skill-bar"></div>
                         </div>
                         <div class="skill-item" data-level="85">
                             <span>Linux</span>
+                            <div class="skill-bar"></div>
+                        </div>
+                        <div class="skill-item" data-level="85">
+                            <span>VMware</span>
                             <div class="skill-bar"></div>
                         </div>
                     </div>
@@ -296,7 +359,7 @@
                 <div class="stats-grid">
                     <div class="stat-card">
                         <i class="fas fa-code-branch"></i>
-                        <h4>90+</h4>
+                        <h4>50+</h4>
                         <p>Repositories</p>
                     </div>
                     <div class="stat-card">
