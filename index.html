@@ -96,7 +96,7 @@
                 </div>
                 <div class="about-col-2">
                     <h2 class="sub-title">About Me</h2>
-                    <p>I'm a passionate <strong>Computer Programming & Analysis</strong> student at Georgian College with expertise in <span class="highlight">AI/ML, data analytics, automation,</span> and full-stack development. As a <span class="highlight">six-time Dean's List</span> recipient, I thrive on solving complex problems through innovative technology solutions.</p>
+                    <p>I'm a passionate <strong>Computer Programming & Analysis</strong> student at Georgian College with expertise in <span class="highlight">AI/ML, data analytics, automation, Programmer</span> and <span class="highlight">full-stack development</span>. As a <span class="highlight">six-time Dean's List</span> recipient, I thrive on solving complex problems through innovative technology solutions.</p>
                     
                     <div class="stats-container">
                         <div class="stat-box">
@@ -384,132 +384,267 @@
             <h2 class="sub-title">Featured Projects</h2>
             <div class="projects-filter">
                 <button class="filter-btn active" data-filter="all">All</button>
-                <button class="filter-btn" data-filter="ai">AI/ML</button>
+                <button class="filter-btn" data-filter="game">Game Dev</button>
                 <button class="filter-btn" data-filter="web">Web</button>
-                <button class="filter-btn" data-filter="data">Data</button>
-                <button class="filter-btn" data-filter="automation">Automation</button>
+                <button class="filter-btn" data-filter="mobile">Mobile</button>
+                <button class="filter-btn" data-filter="ai">AI/Data</button>
+                <button class="filter-btn" data-filter="desktop">Desktop</button>
             </div>
             
             <div class="projects-grid">
-                <div class="project-card" data-category="ai">
+                <!-- Game Development Projects -->
+                <div class="project-card" data-category="game">
                     <div class="project-img">
-                        <img src="images/ai-project.jpg" alt="AI Project">
+                        <img src="images/operation-phoenix.png" alt="Operation Phoenix Game">
                         <div class="project-links">
-                            <a href="#"><i class="fas fa-link"></i></a>
-                            <a href="#"><i class="fab fa-github"></i></a>
+                            <a href="https://github.com/SUKH2022/OperationPhoenixWeapons" target="_blank"><i class="fab fa-github"></i></a>
                         </div>
                     </div>
                     <div class="project-info">
-                        <h3>Medical Diagnosis AI</h3>
-                        <p>Machine learning model for early disease detection using Python and TensorFlow</p>
+                        <h3>Operation Phoenix</h3>
+                        <p>Unreal Engine 5 game featuring special forces operative rescuing his kidnapped son</p>
                         <div class="project-tags">
-                            <span>Python</span>
-                            <span>TensorFlow</span>
-                            <span>Data Analysis</span>
+                            <span>Unreal Engine 5</span>
+                            <span>Blender</span>
+                            <span>3D Modeling</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card" data-category="game">
+                    <div class="project-img">
+                        <img src="images/bubble-shooter.png" alt="Bubble Shooter Game">
+                        <div class="project-links">
+                            <a href="https://github.com/SUKH2022/BubbleShooterGame1" target="_blank"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Bubble Shooter Game</h3>
+                        <p>Interactive mobile shooting game developed with Unreal Engine 5</p>
+                        <div class="project-tags">
+                            <span>Unreal Engine</span>
+                            <span>3D Models</span>
+                            <span>Game Design</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Web Development Projects -->
+                <div class="project-card" data-category="web">
+                    <div class="project-img">
+                        <img src="images/grizzly-worms.png" alt="Grizzly Worms Bookstore">
+                        <div class="project-links">
+                            <a href="https://github.com/SUKH2022/grizzly-worms-bookstore" target="_blank"><i class="fab fa-github"></i></a>
+                            <a href="#" class="demo-link"><i class="fas fa-external-link-alt"></i></a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Grizzly Worms Bookstore</h3>
+                        <p>E-commerce platform built with React, Node.js, MongoDB and Tailwind CSS</p>
+                        <div class="project-tags">
+                            <span>MERN Stack</span>
+                            <span>React</span>
+                            <span>Tailwind CSS</span>
                         </div>
                     </div>
                 </div>
                 
                 <div class="project-card" data-category="web">
                     <div class="project-img">
-                        <img src="images/web-project.jpg" alt="Web Project">
+                        <img src="images/dreams.png" alt="ASP.NET MVC Project">
                         <div class="project-links">
-                            <a href="#"><i class="fas fa-link"></i></a>
-                            <a href="#"><i class="fab fa-github"></i></a>
+                            <a href="https://github.com/SUKH2022/Dreams" target="_blank"><i class="fab fa-github"></i></a>
                         </div>
                     </div>
                     <div class="project-info">
-                        <h3>Automated Business Dashboard</h3>
-                        <p>Real-time analytics dashboard with React and Power BI integration</p>
+                        <h3>Dreams (ASP.NET MVC)</h3>
+                        <p>Web application using ASP.NET MVC with Entity Framework and MySQL</p>
                         <div class="project-tags">
-                            <span>React</span>
-                            <span>Node.js</span>
+                            <span>ASP.NET</span>
+                            <span>MVC</span>
+                            <span>MySQL</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card" data-category="web">
+                    <div class="project-img">
+                        <img src="images/blog.jpeg" alt="Blog Website">
+                        <div class="project-links">
+                            <a href="https://github.com/SUKH2022/Blog" target="_blank"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Blog Platform</h3>
+                        <p>Full-featured blog with user roles (customers/members) and CRUD operations</p>
+                        <div class="project-tags">
+                            <span>PHP</span>
+                            <span>MySQL</span>
+                            <span>JavaScript</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Mobile Development Projects -->
+                <div class="project-card" data-category="mobile">
+                    <div class="project-img">
+                        <img src="images/calorie-tracker.png" alt="Calorie Tracker">
+                        <div class="project-links">
+                            <a href="https://github.com/SUKH2022/COMP3025-finalexam" target="_blank"><i class="fab fa-github"></i></a>
+                            <a href="https://www.youtube.com/watch?v=T6ypBMVJiH0&list=PLjhryLKW--CJdjBxo1msiP696MsvgXHnT&index=1" target="_blank"><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Calorie Tracker</h3>
+                        <p>Android application for tracking daily calorie intake with Firebase integration</p>
+                        <div class="project-tags">
+                            <span>Kotlin</span>
+                            <span>Android</span>
+                            <span>Firebase</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card" data-category="mobile">
+                    <div class="project-img">
+                        <img src="images/swift-projects.png" alt="Swift Projects">
+                        <div class="project-links">
+                            <a href="https://github.com/SUKH2022/COMP2125_W25" target="_blank"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Swift Projects</h3>
+                        <p>Collection of iOS applications developed using Swift</p>
+                        <div class="project-tags">
+                            <span>Swift</span>
+                            <span>iOS</span>
+                            <span>Mobile</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- AI/Data Projects -->
+                <div class="project-card" data-category="ai">
+                    <div class="project-img">
+                        <img src="images/data-analytics.png" alt="Data Analytics Projects">
+                        <div class="project-links">
+                            <a href="https://youtube.com/playlist?list=PLjhryLKW--CLWA3D-98hAP-Auk1wji_PZ" target="_blank"><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Data Analytics Projects</h3>
+                        <p>Collection of data analysis projects covering air quality, traffic safety, healthcare AI, and more</p>
+                        <div class="project-tags">
                             <span>Power BI</span>
+                            <span>Jupyter</span>
+                            <span>SQL</span>
+                            <span>Data Visualization</span>
                         </div>
                     </div>
                 </div>
                 
-                <div class="project-card" data-category="data">
+                <div class="project-card" data-category="ai">
                     <div class="project-img">
-                        <img src="images/data-project.jpg" alt="Data Project">
+                        <img src="images/chatbot.png" alt="Chatbot with Flask">
                         <div class="project-links">
-                            <a href="#"><i class="fas fa-link"></i></a>
-                            <a href="#"><i class="fab fa-github"></i></a>
+                            <a href="https://github.com/SUKH2022/chatbot_with_flask" target="_blank"><i class="fab fa-github"></i></a>
                         </div>
                     </div>
                     <div class="project-info">
-                        <h3>Sales Forecasting System</h3>
-                        <p>Predictive analytics tool using time series analysis</p>
+                        <h3>Chatbot with Flask</h3>
+                        <p>NLP chatbot integrating Microsoft DialoGPT model with Flask web framework</p>
                         <div class="project-tags">
                             <span>Python</span>
-                            <span>Pandas</span>
-                            <span>Matplotlib</span>
+                            <span>Flask</span>
+                            <span>NLP</span>
+                            <span>AI</span>
                         </div>
                     </div>
                 </div>
                 
-                <div class="project-card" data-category="automation">
+                <!-- Desktop Projects -->
+                <div class="project-card" data-category="desktop">
                     <div class="project-img">
-                        <img src="images/automation-project.jpg" alt="Automation Project">
+                        <img src="images/recipe-app.jpg" alt="Recipe App">
                         <div class="project-links">
-                            <a href="#"><i class="fas fa-link"></i></a>
-                            <a href="#"><i class="fab fa-github"></i></a>
+                            <a href="https://github.com/SUKH2022/F23-COMP1011-Assignment-2" target="_blank"><i class="fab fa-github"></i></a>
                         </div>
                     </div>
                     <div class="project-info">
-                        <h3>Document Processing Automation</h3>
-                        <p>Automated PDF processing and data extraction system</p>
+                        <h3>Recipe App</h3>
+                        <p>JavaFX application for accessing recipe information from APIs</p>
+                        <div class="project-tags">
+                            <span>Java</span>
+                            <span>JavaFX</span>
+                            <span>API Integration</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card" data-category="desktop">
+                    <div class="project-img">
+                        <img src="images/jarvis.png" alt="Desktop Assistant">
+                        <div class="project-links">
+                            <a href="https://github.com/SUKH2022/destop_assistant" target="_blank"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>JARVIS Desktop Assistant</h3>
+                        <p>Voice-controlled intelligent companion with speech recognition</p>
                         <div class="project-tags">
                             <span>Python</span>
-                            <span>PyPDF2</span>
+                            <span>Speech Recognition</span>
                             <span>Automation</span>
                         </div>
                     </div>
                 </div>
                 
-                <div class="project-card" data-category="ai">
-                    <div class="project-img">
-                        <img src="images/nlp-project.jpg" alt="NLP Project">
-                        <div class="project-links">
-                            <a href="#"><i class="fas fa-link"></i></a>
-                            <a href="#"><i class="fab fa-github"></i></a>
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <h3>Multilingual Chatbot</h3>
-                        <p>AI-powered chatbot with NLP capabilities in multiple languages</p>
-                        <div class="project-tags">
-                            <span>Python</span>
-                            <span>NLTK</span>
-                            <span>NLP</span>
-                        </div>
-                    </div>
-                </div>
-                
                 <div class="project-card" data-category="web">
                     <div class="project-img">
-                        <img src="images/ecommerce-project.jpg" alt="E-commerce Project">
+                        <img src="images/portfolio.png" alt="Personal Portfolio">
                         <div class="project-links">
-                            <a href="#"><i class="fas fa-link"></i></a>
-                            <a href="#"><i class="fab fa-github"></i></a>
+                            <a href="https://github.com/SUKH2022/profileWebsite" target="_blank"><i class="fab fa-github"></i></a>
+                            <a href="https://personal-portfolio-t85p.onrender.com" target="_blank"><i class="fas fa-external-link-alt"></i></a>
                         </div>
                     </div>
                     <div class="project-info">
-                        <h3>E-commerce Analytics Platform</h3>
-                        <p>Full-stack application with real-time sales analytics</p>
+                        <h3>Personal Portfolio</h3>
+                        <p>Node.js portfolio with Express and Handlebars showcasing my projects</p>
                         <div class="project-tags">
-                            <span>MERN Stack</span>
-                            <span>MongoDB</span>
-                            <span>Chart.js</span>
+                            <span>Node.js</span>
+                            <span>Express</span>
+                            <span>Handlebars</span>
                         </div>
                     </div>
                 </div>
             </div>
-            <br><br>
-            <a href="https://github.com/SUKH2022" target="_blank" class="btn">View All Projects</a>
+            
+            <div class="project-playlists">
+                <h3><i class="fab fa-youtube"></i> Project Demonstration Playlists</h3>
+                <div class="playlist-grid">
+                    <div class="playlist-card">
+                        <a href="https://www.youtube.com/playlist?list=PLjhryLKW--CLWA3D-98hAP-Auk1wji_PZ" target="_blank">
+                            <img src="images/data-playlist.png" alt="Data Analytics Playlist">
+                            <div class="playlist-info">
+                                <h4>Data Analytics Projects</h4>
+                                <p>Air quality, traffic safety, healthcare AI, and migration risk analysis</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="playlist-card">
+                        <a href="https://www.youtube.com/playlist?list=PLjhryLKW--CJdjBxo1msiP696MsvgXHnT" target="_blank">
+                            <img src="images/mobile-list.png" alt="Mobile Development Playlist">
+                            <div class="playlist-info">
+                                <h4>Mobile Development</h4>
+                                <p>Kotlin and Unity projects walkthroughs</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <a href="https://github.com/SUKH2022" target="_blank" class="btn">View All Projects on GitHub</a>
+            </div>
         </div>
     </div>
-
     <!-- Certifications Section -->
     <div id="certifications">
         <div class="container">

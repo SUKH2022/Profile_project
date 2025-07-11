@@ -805,6 +805,76 @@ nav ul li a:hover::after {
     font-size: 0.7rem;
 }
 
+/* Project Playlists */
+.project-playlists {
+    margin-top: 3rem;
+    text-align: center;
+}
+
+.project-playlists h3 {
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.playlist-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.playlist-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: var(--transition);
+}
+
+.playlist-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.playlist-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.playlist-info {
+    padding: 1.5rem;
+}
+
+.playlist-info h4 {
+    margin-bottom: 0.5rem;
+    color: var(--secondary-color);
+}
+
+.playlist-info p {
+    font-size: 0.9rem;
+    color: var(--gray-color);
+}
+
+.demo-link {
+    color: var(--light-color);
+    background: var(--secondary-color);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+}
+
+.demo-link:hover {
+    background: var(--primary-color);
+    transform: translateY(-5px);
+}
+
 /* Certifications Section */
 #certifications {
     padding: 5rem 0;
