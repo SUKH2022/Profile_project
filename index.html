@@ -1046,45 +1046,49 @@
     <script src="js/script.js"></script>
     <script>
         // Google Sheets Form Submission
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbwnorGprtB5YaIUz4DqkSbJ6wjHXtOUX4gJMmq2Fs6kMbjizm_WUcRBZcrZVowREHLo/exec'
-        const form = document.forms['submit-to-google-sheet']
-        const msg = document.getElementById("msg")
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbzaY626Xefj3Zo5JlFzRmMLAMRYztAXLFdNsXu_UkKyfNDw8a-HIwr8rJJ2DG-bIQU/exec'
+        const form = document.forms['submit-to-google-sheet'];
+        const msg = document.getElementById("msg");
         const submitBtn = document.querySelector('#contact-form button[type="submit"]');
 
-        form.addEventListener('submit', e => {
-            e.preventDefault()
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
             
             // Show loading state
-            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
             submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
             
-            fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-                .then(response => {
-                    msg.innerHTML = "Message sent successfully!";
-                    setTimeout(function() {
-                        msg.innerHTML = ""
-                    }, 5000)
-                    form.reset()
-                    
-                    // Reset button state
-                    submitBtn.innerHTML = '<span class="submit-text">Message Sent!</span> <i class="fas fa-check"></i>';
-                    setTimeout(() => {
-                        submitBtn.innerHTML = '<span class="submit-text">Send Message</span> <i class="fas fa-paper-plane"></i>';
-                        submitBtn.disabled = false;
-                    }, 3000);
-                })
-                .catch(error => {
-                    console.error('Error!', error.message)
-                    msg.innerHTML = "Error sending message. Please try again.";
-                    
-                    // Reset button state
-                    submitBtn.innerHTML = '<span class="submit-text">Error - Try Again</span> <i class="fas fa-exclamation-circle"></i>';
-                    setTimeout(() => {
-                        submitBtn.innerHTML = '<span class="submit-text">Send Message</span> <i class="fas fa-paper-plane"></i>';
-                        submitBtn.disabled = false;
-                    }, 3000);
-                })
-        })
+            try {
+                const formData = new FormData(form);
+                const response = await fetch(scriptURL, { 
+                    method: 'POST', 
+                    body: formData
+                });
+                
+                if (!response.ok) throw new Error('Network response was not ok');
+                
+                const result = await response.json();
+                console.log('Success:', result);
+                
+                msg.innerHTML = "Message sent successfully!";
+                msg.style.color = 'green';
+                form.reset();
+                
+                submitBtn.innerHTML = '<span class="submit-text">Message Sent!</span> <i class="fas fa-check"></i>';
+                
+            } catch (error) {
+                console.error('Error:', error);
+                msg.innerHTML = "Error sending message. Please try again later.";
+                msg.style.color = 'red';
+                submitBtn.innerHTML = '<span class="submit-text">Error - Try Again</span> <i class="fas fa-exclamation-circle"></i>';
+            } finally {
+                setTimeout(() => {
+                    msg.innerHTML = "";
+                    submitBtn.innerHTML = '<span class="submit-text">Send Message</span> <i class="fas fa-paper-plane"></i>';
+                    submitBtn.disabled = false;
+                }, 5000);
+            }
+        });
     </script>
 </body>
 </html> 
