@@ -1362,3 +1362,15 @@ footer {
         min-width: 260px;
     }
 }
+
+/* ---------custom scrollbar--------- */
+::-webkit-scrollbar{
+    width: 15px;
+}
+::-webkit-scrollbar-track{
+    background: #d1e5ff
+}
+::-webkit-scrollbar-thumb{
+    background: linear-gradient(#08fdd8, #000000);
+    border-radius: 10px;
+}
