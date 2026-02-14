@@ -1458,8 +1458,14 @@
     <!-- Enhanced AI Chatbot -->
     <div id="chatbot-container">
         <div id="chatbot-header">
-            <span>chatBot</span>
-            <i class="fas fa-robot"></i>
+            <div style="display: flex; align-items: center; gap: 10px;">
+                <i class="fas fa-robot" style="font-size: 1.2rem;"></i>
+                <span style="font-weight: 600;">Sukhpreet's AI Assistant</span>
+            </div>
+            <div class="chat-header-icons">
+                <i class="fas fa-minus" title="Minimize" onclick="event.stopPropagation(); document.getElementById('chatbot-container').classList.remove('expanded');"></i>
+                <i class="fas fa-trash-alt" title="Clear chat" onclick="event.stopPropagation(); if(confirm('Clear chat history?')) clearChatHistory();"></i>
+            </div>
         </div>
         <div id="chatbot-body">
             <div id="chat-messages">
@@ -1468,10 +1474,14 @@
                 </div>
             </div>
             <div class="suggestion-chips">
-                <div class="chip" data-question="Tell me about Sukhpreet's technical skills">Technical Skills</div>
-                <div class="chip" data-question="What projects has Sukhpreet worked on">Projects</div>
-                <div class="chip" data-question="What is Sukhpreet's experience">Experience</div>
-                <div class="chip" data-question="How can I contact Sukhpreet">Contact</div>
+                <div class="chip" data-question="Tell me about Sukhpreet's technical skills">📊 Skills</div>
+                <div class="chip" data-question="What projects has Sukhpreet worked on">🚀 Projects</div>
+                <div class="chip" data-question="What is Sukhpreet's experience">💼 Experience</div>
+                <div class="chip" data-question="Where did Sukhpreet study">🎓 Education</div>
+                <div class="chip" data-question="What certifications does Sukhpreet have">📜 Certifications</div>
+                <div class="chip" data-question="What awards has Sukhpreet won">🏆 Awards</div>
+                <div class="chip" data-question="How can I contact Sukhpreet">📞 Contact</div>
+                <div class="chip" data-question="What are Sukhpreet's key strengths">💪 Strengths</div>
             </div>
             <div class="chat-input">
                 <input type="text" id="user-input" placeholder="Ask something about the portfolio...">
@@ -1538,235 +1548,430 @@
             }
         });
         // Enhanced Chatbot Functionality
-        function initChatbot() {
-            const chatbotContainer = document.getElementById('chatbot-container');
-            const chatbotHeader = document.getElementById('chatbot-header');
-            const chatMessages = document.getElementById('chat-messages');
-            const userInput = document.getElementById('user-input');
-            const sendBtn = document.getElementById('send-btn');
-            const suggestionChips = document.querySelectorAll('.chip');
-            
-            chatbotHeader.addEventListener('click', () => {
-                chatbotContainer.classList.toggle('expanded');
-            });
-            
-            // Enhanced Portfolio knowledge base with employer-focused responses
-            const knowledgeBase = {
-                'skills': `Sukhpreet possesses a diverse technical skill set that makes her a valuable asset for any development team:<br><br>
-                • <strong>Programming Languages:</strong> Python, Java, JavaScript, C/C++, Swift, PHP<br>
-                • <strong>AI/ML & Data Science:</strong> Machine Learning, Data Analytics, Deep Learning, SQL, Jupyter Notebooks<br>
-                • <strong>Web Development:</strong> React, Node.js, HTML/CSS, ASP.NET, PHP<br>
-                • <strong>Tools & Platforms:</strong> Git, Azure, Power BI, Linux, VMware<br><br>
-                She's continuously expanding her skills through certifications and practical application in projects. <a href="#skills" style="color: #08fdd8; text-decoration: underline;">View detailed skills breakdown</a>`,
-
-                'projects': `Sukhpreet has an impressive portfolio of <strong>50+ projects</strong> demonstrating her technical versatility:<br><br>
-                • <strong>Operation Phoenix:</strong> Unreal Engine 5 game with advanced 3D modeling<br>
-                • <strong>Grizzly Worms Bookstore:</strong> Full-stack MERN e-commerce platform<br>
-                • <strong>Data Analytics Projects:</strong> Power BI dashboards and Jupyter notebook analyses<br>
-                • <strong>Mobile Applications:</strong> Kotlin and Swift iOS/Android apps<br>
-                • <strong>AI/ML Solutions:</strong> Chatbots and predictive models<br><br>
-                These projects showcase her ability to deliver complete solutions across multiple domains. <a href="#projects" style="color: #08fdd8; text-decoration: underline;">Explore her projects</a> or check her <a href="https://github.com/SUKH2022" target="_blank" style="color: #08fdd8; text-decoration: underline;">GitHub</a> for code samples.`,
-
-                'experience': `Sukhpreet brings valuable professional experience to any team:<br><br>
-                <strong>Co-op Tester - Ontario Public Service (May 2025 - Present)</strong><br>
-                • Performing unit, system, and user acceptance testing for critical social services applications<br>
-                • Leveraging IBM Cognos for data analysis and reporting<br>
-                • Developing comprehensive testing documentation and executing QA processes<br>
-                • Gaining exposure to Agile and Waterfall methodologies<br><br>
+        // Enhanced Chatbot Functionality with Professional Features
+            function initChatbot() {
+                const chatbotContainer = document.getElementById('chatbot-container');
+                const chatbotHeader = document.getElementById('chatbot-header');
+                const chatMessages = document.getElementById('chat-messages');
+                const userInput = document.getElementById('user-input');
+                const sendBtn = document.getElementById('send-btn');
+                const suggestionChips = document.querySelectorAll('.chip');
                 
-                <strong>Program Tutor - Georgian College (Sep 2024 - Present)</strong><br>
-                • Tutoring students in programming, databases, and math concepts<br>
-                • Covering subjects including Python, JavaScript, SQL, and mainframe systems<br>
-                • Improving student performance through personalized learning approaches<br><br>
+                // Chat state management
+                let chatHistory = [];
+                let conversationContext = {};
+                let feedbackGiven = false;
                 
-                Her experience demonstrates strong technical capabilities and communication skills. <a href="https://www.linkedin.com/in/sukhpreet-saini/" target="_blank" style="color: #08fdd8; text-decoration: underline;">View her LinkedIn</a> for more details.`,
-
-                'education': `Sukhpreet is pursuing an <strong>Advanced Diploma in Computer Programming & Analysis at Georgian College (2023-2025)</strong> with outstanding academic achievements:<br><br>
-                • <strong>Six-time Dean's List recipient</strong> (6 consecutive terms)<br>
-                • Specialized in AI/ML, data analytics, and automation<br>
-                • McDonald's Scholarship recipient for academic excellence<br><br>
-                Her consistent high performance demonstrates strong dedication and learning ability.`,
-
-                'contact': `You can reach Sukhpreet through multiple channels:<br><br>
-                • <strong>Email:</strong> sukhpreet.saini2020@gmail.com<br>
-                • <strong>Phone:</strong> +1 6476854689<br>
-                • <strong>Location:</strong> Barrie, Ontario, Canada (open to relocation/remote)<br>
-                • <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/sukhpreet-saini/" target="_blank" style="color: #08fdd8; text-decoration: underline;">linkedin.com/in/sukhpreet-saini</a><br>
-                • <strong>GitHub:</strong> <a href="https://github.com/SUKH2022" target="_blank" style="color: #08fdd8; text-decoration: underline;">github.com/SUKH2022</a><br><br>
-                She's actively seeking opportunities where she can contribute her technical skills and passion for innovation. You can also use the contact form on this website.`,
-
-                'certifications': `Sukhpreet has earned <strong>30+ certifications</strong> demonstrating her commitment to continuous learning:<br><br>
-                • <strong>Microsoft Certified: Azure Fundamentals</strong><br>
-                • <strong>Building AI Products Professional Certificate</strong> (LinkedIn Learning)<br>
-                • <strong>Career Essentials in Data Analysis</strong> (Microsoft & LinkedIn)<br>
-                • <strong>Career Essentials in Project Management</strong> (Microsoft & LinkedIn)<br>
-                • Java Programming, Mobile Development with Swift, and many more<br><br>
-                These certifications validate her expertise across multiple domains. <a href="#certifications" style="color: #08fdd8; text-decoration: underline;">View all certifications</a>`,
-
-                'resume': `You can download Sukhpreet's resume by clicking the <strong>"Download Resume"</strong> button in the contact section. Sukhpreet's resume provides a comprehensive overview of her:<br><br>
-                • Technical skills and proficiencies<br>
-                • Professional experience and achievements<br>
-                • Education and certifications<br>
-                • Project portfolio<br><br>
-                She's open to opportunities in software development, AI/ML engineering, data analysis, and related roles.`,
-
-                'strengths': `Sukhpreet's key strengths that would benefit any organization:<br><br>
-                • <strong>Technical Versatility:</strong> Proficiency across multiple programming languages and technologies<br>
-                • <strong>Quick Learning:</strong> Demonstrated by 30+ certifications and rapid skill acquisition<br>
-                • <strong>Problem-Solving:</strong> Ability to tackle complex technical challenges across diverse projects<br>
-                • <strong>Communication Skills:</strong> Experience tutoring and explaining technical concepts clearly<br>
-                • <strong>Work Ethic:</strong> Six-time Dean's List recipient while maintaining multiple roles<br><br>
-                Her combination of technical depth and soft skills makes her a valuable team member.`,
-
-                'availability': `Sukhpreet is <strong>actively seeking new opportunities</strong> and would be available to start according to the following timeline:<br><br>
-                • <strong>Notice Period:</strong> 2 weeks (for current co-op position)<br>
-                • <strong>Preferred Roles:</strong> Software Developer, AI/ML Engineer, Data Analyst, Full-Stack Developer<br>
-                • <strong>Location Preferences:</strong> Open to opportunities in Ontario or remote positions across Canada<br>
-                • <strong>Visa Status:</strong> Eligible to work in Canada<br><br>
-                She's enthusiastic about joining a team where she can contribute her skills and continue growing professionally.`,
-
-                'hello': `Hello! I'm an AI assistant here to help you learn more about Sukhpreet Saini, a talented Computer Programming & Analysis student with expertise in AI/ML, data analytics, and full-stack development.<br><br>
-                As a <strong>six-time Dean's List recipient</strong> with professional experience at Ontario Public Service and Georgian College, Sukhpreet brings both strong technical skills and proven professional competencies to any team.<br><br>
-                You can ask me about her:<br>
-                • Technical skills and certifications<br>
-                • Project portfolio<br>
-                • Professional experience<br>
-                • Education and achievements<br>
-                • How to contact her<br><br>
-                What would you like to know first?`,
-
-                'default': `I'm not sure I understand. You can ask me about:<br><br>
-                • Sukhpreet's technical skills and how they might benefit your team<br>
-                • Her project experience and GitHub portfolio<br>
-                • Professional experience at Ontario Public Service and Georgian College<br>
-                • Education and certifications<br>
-                • Her availability for new opportunities<br>
-                • How to contact her for interviews<br><br>
-                You can also click on the suggestion chips below for quick information.`
-            };
-            
-            function addMessage(text, isUser = false) {
-                const messageDiv = document.createElement('div');
-                messageDiv.classList.add('message');
-                messageDiv.classList.add(isUser ? 'user-message' : 'bot-message');
-                
-                if (isUser) {
-                    messageDiv.textContent = text;
-                } else {
-                    messageDiv.innerHTML = text;
+                // Load chat history from localStorage
+                function loadChatHistory() {
+                    const saved = localStorage.getItem('chatHistory');
+                    if (saved) {
+                        chatHistory = JSON.parse(saved);
+                        // Display last 3 messages on load
+                        const recentMessages = chatHistory.slice(-3);
+                        recentMessages.forEach(msg => {
+                            if (msg.role === 'user') {
+                                addMessage(msg.content, true);
+                            } else {
+                                addMessage(msg.content, false);
+                            }
+                        });
+                    }
                 }
                 
-                chatMessages.appendChild(messageDiv);
-                chatMessages.scrollTop = chatMessages.scrollHeight;
-            }
-            
-            function showTypingIndicator() {
-                const typingDiv = document.createElement('div');
-                typingDiv.classList.add('typing-indicator');
-                typingDiv.id = 'typing-indicator';
-                typingDiv.innerHTML = `
-                    <span>AI is typing</span>
-                    <div class="typing-dot"></div>
-                    <div class="typing-dot"></div>
-                    <div class="typing-dot"></div>
-                `;
-                chatMessages.appendChild(typingDiv);
-                chatMessages.scrollTop = chatMessages.scrollHeight;
-            }
-            
-            function hideTypingIndicator() {
-                const typingIndicator = document.getElementById('typing-indicator');
-                if (typingIndicator) {
-                    typingIndicator.remove();
-                }
-            }
-            
-            function processMessage(message) {
-                const lowerMessage = message.toLowerCase();
-                let response = knowledgeBase.default;
-                
-                // Employer-focused questions
-                if (lowerMessage.includes('skill') || lowerMessage.includes('technology') || lowerMessage.includes('technical') || 
-                    lowerMessage.includes('proficient') || lowerMessage.includes('expertise') || lowerMessage.includes('stack')) {
-                    response = knowledgeBase.skills;
-                } else if (lowerMessage.includes('project') || lowerMessage.includes('work sample') || lowerMessage.includes('portfolio') || 
-                        lowerMessage.includes('github') || lowerMessage.includes('code sample')) {
-                    response = knowledgeBase.projects;
-                } else if (lowerMessage.includes('experience') || lowerMessage.includes('job') || lowerMessage.includes('work history') || 
-                        lowerMessage.includes('professional') || lowerMessage.includes('background') || lowerMessage.includes('resume')) {
-                    response = knowledgeBase.experience;
-                } else if (lowerMessage.includes('education') || lowerMessage.includes('degree') || lowerMessage.includes('college') || 
-                        lowerMessage.includes('academic') || lowerMessage.includes('dean') || lowerMessage.includes('diploma')) {
-                    response = knowledgeBase.education;
-                } else if (lowerMessage.includes('contact') || lowerMessage.includes('email') || lowerMessage.includes('phone') || 
-                        lowerMessage.includes('reach') || lowerMessage.includes('linkedin') || lowerMessage.includes('connect')) {
-                    response = knowledgeBase.contact;
-                } else if (lowerMessage.includes('certification') || lowerMessage.includes('certificate') || lowerMessage.includes('cert') || 
-                        lowerMessage.includes('training') || lowerMessage.includes('qualification')) {
-                    response = knowledgeBase.certifications;
-                } else if (lowerMessage.includes('strength') || lowerMessage.includes('asset') || lowerMessage.includes('benefit') || 
-                        lowerMessage.includes('advantage') || lowerMessage.includes('value')) {
-                    response = knowledgeBase.strengths;
-                } else if (lowerMessage.includes('available') || lowerMessage.includes('start date') || lowerMessage.includes('notice period') || 
-                        lowerMessage.includes('timeline') || lowerMessage.includes('when can she start')) {
-                    response = knowledgeBase.availability;
-                } else if (lowerMessage.includes('hello') || lowerMessage.includes('hi') || lowerMessage.includes('hey') || 
-                        lowerMessage.includes('introduce') || lowerMessage.includes('tell me about')) {
-                    response = knowledgeBase.hello;
-                } else if (lowerMessage.includes('thank')) {
-                    response = 'You\'re welcome! Is there anything else you\'d like to know about how Sukhpreet could contribute to your team?';
-                } else if (lowerMessage.includes('who are you')) {
-                    response = 'I\'m an AI assistant designed to help you learn more about Sukhpreet Saini and how her skills and experience could benefit your organization.';
-                } else if (lowerMessage.includes('hire') || lowerMessage.includes('recruit') || lowerMessage.includes('position') || 
-                        lowerMessage.includes('role') || lowerMessage.includes('opportunity')) {
-                    response = `Sukhpreet would be an excellent candidate for technical roles in your organization!<br><br>
-                    With her strong foundation in programming, AI/ML, and full-stack development combined with her professional experience, she can quickly contribute to your team.<br><br>
-                    She's particularly interested in roles involving:<br>
-                    • Software Development<br>
-                    • AI/ML Engineering<br>
-                    • Data Analysis<br>
-                    • Full-Stack Development<br>
-                    • Quality Assurance/Testing<br><br>
-                    <a href="#contact" style="color: #08fdd8; text-decoration: underline;">Contact her</a> to discuss how she can contribute to your specific needs.`;
+                // Save message to history
+                function saveToHistory(role, content) {
+                    chatHistory.push({ role, content, timestamp: new Date().toISOString() });
+                    // Keep only last 50 messages
+                    if (chatHistory.length > 50) {
+                        chatHistory = chatHistory.slice(-50);
+                    }
+                    localStorage.setItem('chatHistory', JSON.stringify(chatHistory));
                 }
                 
-                // Simulate typing delay
-                showTypingIndicator();
-                setTimeout(() => {
-                    hideTypingIndicator();
-                    addMessage(response);
-                }, 1000 + Math.random() * 1000);
-            }
-            
-            function sendMessage() {
-                const message = userInput.value.trim();
-                if (message) {
-                    addMessage(message, true);
-                    userInput.value = '';
-                    processMessage(message);
+                // Clear chat history
+                function clearChatHistory() {
+                    chatHistory = [];
+                    localStorage.removeItem('chatHistory');
+                    chatMessages.innerHTML = '';
+                    addMessage("Hello! I'm your AI assistant. Ask me about Sukhpreet's skills, projects, or experience. I can help you learn why she'd be a great addition to your team!", false);
                 }
-            }
-            
-            // Event listeners
-            sendBtn.addEventListener('click', sendMessage);
-            userInput.addEventListener('keypress', (e) => {
-                if (e.key === 'Enter') sendMessage();
-            });
-            
-            // Suggestion chips functionality
-            suggestionChips.forEach(chip => {
-                chip.addEventListener('click', () => {
-                    const question = chip.getAttribute('data-question');
-                    addMessage(question, true);
-                    processMessage(question);
+
+                
+                chatbotHeader.addEventListener('click', (e) => {
+                    if (e.target.tagName !== 'I') {
+                        chatbotContainer.classList.toggle('expanded');
+                    }
                 });
-            });
-            
-            // Auto-expand chatbot when user starts typing
-            userInput.addEventListener('focus', () => {
-                chatbotContainer.classList.add('expanded');
-            });
-        }
+                
+                // Enhanced knowledge base with more detailed information
+                const knowledgeBase = {
+                    'skills': `Sukhpreet possesses a diverse technical skill set that makes her a valuable asset for any development team:<br><br>
+                    • <strong>Programming Languages:</strong> Python (90%), Java (80%), JavaScript (85%), C/C++ (85%), Swift (85%), PHP (85%)<br>
+                    • <strong>AI/ML & Data Science:</strong> Machine Learning (80%), Data Analytics (85%), Deep Learning (70%), SQL (90%), Jupyter Notebooks (85%)<br>
+                    • <strong>Web Development:</strong> React (80%), Node.js (85%), HTML/CSS (90%), ASP.NET, PHP<br>
+                    • <strong>Tools & Platforms:</strong> Git (90%), Azure (85%), Power BI (90%), Linux (85%), VMware (85%)<br>
+                    • <strong>Testing & QA:</strong> Selenium, Test Automation, Manual Testing, Agile Testing, STLC<br><br>
+                    She's continuously expanding her skills through certifications and practical application in projects. <a href="#skills" style="color: #08fdd8; text-decoration: underline;">View detailed skills breakdown</a>`,
+
+                    'projects': `Sukhpreet has an impressive portfolio of <strong>50+ projects</strong> demonstrating her technical versatility:<br><br>
+                    • <strong>Operation Phoenix:</strong> Unreal Engine 5 game with advanced 3D modeling and Blueprint scripting<br>
+                    • <strong>Grizzly Worms Bookstore:</strong> Full-stack MERN e-commerce platform with Redux and JWT authentication<br>
+                    • <strong>OPS Test Automation Suite:</strong> Led automation initiative using Selenium and Python at Ontario Public Service<br>
+                    • <strong>Data Analytics Projects:</strong> Power BI dashboards, Jupyter notebook analyses, SQL data modeling<br>
+                    • <strong>Mobile Applications:</strong> Kotlin Android apps, Swift iOS applications with Firebase integration<br>
+                    • <strong>AI/ML Solutions:</strong> NLP chatbots using Microsoft DialoGPT, predictive models, computer vision projects<br><br>
+                    These projects showcase her ability to deliver complete solutions across multiple domains. <a href="#projects" style="color: #08fdd8; text-decoration: underline;">Explore her projects</a> or check her <a href="https://github.com/SUKH2022" target="_blank" style="color: #08fdd8; text-decoration: underline;">GitHub</a> for code samples.`,
+
+                    'experience': `Sukhpreet brings valuable professional experience to any team:<br><br>
+                    <strong>Application Programmer Analyst - Ontario Public Service (Jan 2026 - Present)</strong><br>
+                    • Developing enterprise-level applications for Transfer Payment Ontario Branch<br>
+                    • Collaborating with cross-functional teams in Agile environment<br>
+                    • Ensuring code quality and government IT standards compliance<br><br>
+                    
+                    <strong>Tester (Co-op) - Ontario Public Service (May 2025 - Dec 2025)</strong><br>
+                    • Performed unit, system, and UAT testing for critical social services applications<br>
+                    • Leveraged IBM Cognos for data analysis and reporting<br>
+                    • Led test automation initiative with Selenium and Python<br>
+                    • Developed comprehensive testing documentation<br><br>
+                    
+                    <strong>Program Tutor - Georgian College (Sep 2024 - Dec 2025)</strong><br>
+                    • Tutored students in programming, databases, and math concepts<br>
+                    • Covered Python, JavaScript, SQL, mainframe systems, and more<br>
+                    • Improved student performance through personalized learning<br><br>
+                    
+                    Her experience demonstrates strong technical capabilities and communication skills. <a href="https://www.linkedin.com/in/sukhpreet-saini/" target="_blank" style="color: #08fdd8; text-decoration: underline;">View her LinkedIn</a> for more details.`,
+
+                    'education': `Sukhpreet has graduated with an <strong>Advanced Diploma in Computer Programming & Analysis from Georgian College (2023-2025)</strong> with outstanding academic achievements:<br><br>
+                    • <strong>Six-time Dean's List recipient</strong> (6 consecutive terms: Winter '23 - Winter '25)<br>
+                    • <strong>Graduated with Distinction</strong><br>
+                    • Specialized in AI/ML, data analytics, and automation<br>
+                    • McDonald's Scholarship recipient for academic excellence<br>
+                    • Key coursework: Data Analytics, Machine Learning, Full-Stack Development, Mainframe Systems, Game Development<br><br>
+                    Her consistent high performance demonstrates strong dedication and learning ability.`,
+
+                    'contact': `You can reach Sukhpreet through multiple channels:<br><br>
+                    • <strong>Email:</strong> sukhpreet.saini2020@gmail.com<br>
+                    • <strong>Phone:</strong> +1 6476854689<br>
+                    • <strong>Location:</strong> Barrie, Ontario, Canada (open to relocation/remote)<br>
+                    • <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/sukhpreet-saini/" target="_blank" style="color: #08fdd8; text-decoration: underline;">linkedin.com/in/sukhpreet-saini</a><br>
+                    • <strong>GitHub:</strong> <a href="https://github.com/SUKH2022" target="_blank" style="color: #08fdd8; text-decoration: underline;">github.com/SUKH2022</a><br>
+                    • <strong>HackerRank:</strong> <a href="https://www.hackerrank.com/sukhpreet_saini1" target="_blank" style="color: #08fdd8; text-decoration: underline;">@sukhpreet_saini1</a><br><br>
+                    She's actively seeking opportunities where she can contribute her technical skills and passion for innovation. You can also use the contact form on this website.`,
+
+                    'certifications': `Sukhpreet has earned <strong>50+ certifications</strong> demonstrating her commitment to continuous learning:<br><br>
+                    • <strong>Microsoft Certified: Azure Fundamentals</strong><br>
+                    • <strong>AI for Organizational Leaders</strong> (Microsoft & LinkedIn)<br>
+                    • <strong>Building AI Products Professional Certificate</strong> (LinkedIn Learning)<br>
+                    • <strong>Career Essentials in Data Analysis</strong> (Microsoft & LinkedIn)<br>
+                    • <strong>Career Essentials in Project Management</strong> (Microsoft & LinkedIn)<br>
+                    • <strong>LambdaTest Software Testing Professional Certificate</strong><br>
+                    • <strong>Java Programming Certification</strong> (Aptech)<br>
+                    • <strong>Mobile Development with Swift</strong> (Georgian College)<br>
+                    • <strong>Test Automation Foundations</strong> (LinkedIn Learning)<br>
+                    • <strong>Agile Testing</strong> (LinkedIn Learning)<br><br>
+                    These certifications validate her expertise across multiple domains. <a href="#certifications" style="color: #08fdd8; text-decoration: underline;">View all certifications</a>`,
+
+                    'resume': `You can download Sukhpreet's resume by clicking the <strong>"Download Resume"</strong> button in the contact section. Her resume provides a comprehensive overview of:<br><br>
+                    • Technical skills and proficiencies with proficiency levels<br>
+                    • Professional experience with quantifiable achievements<br>
+                    • Education with Dean's List recognition<br>
+                    • 50+ certifications across multiple domains<br>
+                    • Project portfolio with GitHub links<br>
+                    • Awards and recognition details<br><br>
+                    She's open to opportunities in software development, AI/ML engineering, data analysis, and related roles.`,
+
+                    'strengths': `Sukhpreet's key strengths that would benefit any organization:<br><br>
+                    • <strong>Technical Versatility:</strong> Proficiency across 15+ programming languages and technologies<br>
+                    • <strong>Quick Learning:</strong> Demonstrated by 50+ certifications and rapid skill acquisition<br>
+                    • <strong>Problem-Solving:</strong> Ability to tackle complex technical challenges across diverse projects<br>
+                    • <strong>Communication Skills:</strong> Experience tutoring and explaining technical concepts clearly<br>
+                    • <strong>Work Ethic:</strong> Six-time Dean's List recipient while maintaining multiple roles<br>
+                    • <strong>Leadership:</strong> Led automation initiatives and mentored junior developers<br>
+                    • <strong>Adaptability:</strong> Experience in both Agile and Waterfall methodologies<br><br>
+                    Her combination of technical depth and soft skills makes her a valuable team member.`,
+
+                    'availability': `Sukhpreet is <strong>actively seeking new opportunities</strong> and would be available to start according to the following timeline:<br><br>
+                    • <strong>Notice Period:</strong> 2 weeks<br>
+                    • <strong>Preferred Roles:</strong> Software Developer, AI/ML Engineer, Data Analyst, Full-Stack Developer, QA Engineer<br>
+                    • <strong>Industries:</strong> Tech, Finance, Healthcare, Government, Consulting<br>
+                    • <strong>Location Preferences:</strong> Open to opportunities in Ontario or remote positions across Canada<br>
+                    • <strong>Work Authorization:</strong> Eligible to work in Canada<br>
+                    • <strong>Start Date:</strong> Immediate upon offer acceptance<br><br>
+                    She's enthusiastic about joining a team where she can contribute her skills and continue growing professionally.`,
+
+                    'awards': `Sukhpreet has received several awards and recognitions:<br><br>
+                    • <strong>Dean's List:</strong> 6 consecutive terms at Georgian College (Winter '23 - Winter '25)<br>
+                    • <strong>McDonald's Scholarship:</strong> Awarded for academic excellence and exemplary performance<br>
+                    • <strong>Employee of the Month:</strong> McDonald's Canada (February 2024)<br>
+                    • <strong>OPS Automation Lead:</strong> Spearheaded automation initiative during co-op term<br>
+                    • <strong>Academic Excellence Award:</strong> For outstanding performance in Computer Programming<br><br>
+                    These awards demonstrate her commitment to excellence and recognition by peers and employers.`,
+
+                    'github': `Sukhpreet maintains an active GitHub profile with:<br><br>
+                    • <strong>104+ repositories</strong> showcasing diverse projects<br>
+                    • <strong>50+ projects</strong> including games, web apps, and AI solutions<br>
+                    • <strong>100k+ lines of code</strong> across multiple languages<br>
+                    • <strong>30+ project stars</strong> from the developer community<br>
+                    • Active contribution to open source and personal projects<br><br>
+                    Check out her GitHub: <a href="https://github.com/SUKH2022" target="_blank" style="color: #08fdd8; text-decoration: underline;">github.com/SUKH2022</a>`,
+
+                    'hello': `Hello! I'm an AI assistant here to help you learn more about Sukhpreet Saini, a talented Computer Programmer & Analyst graduate with expertise in AI/ML, data analytics, and full-stack development.<br><br>
+                    <strong>Quick Facts:</strong><br>
+                    • 🎓 Graduated with Distinction from Georgian College<br>
+                    • 🏆 Six-time Dean's List recipient<br>
+                    • 💼 Current: Application Programmer Analyst at Ontario Public Service<br>
+                    • 📜 50+ professional certifications<br>
+                    • 🚀 50+ projects across multiple domains<br><br>
+                    You can ask me about her:<br>
+                    • Technical skills and proficiencies<br>
+                    • Project portfolio and GitHub<br>
+                    • Professional experience and achievements<br>
+                    • Education and certifications<br>
+                    • Awards and recognition<br>
+                    • How to contact her for opportunities<br><br>
+                    What would you like to know first?`,
+
+                    'default': `I'm not sure I understand. You can ask me about:<br><br>
+                    <strong>Suggested Topics:</strong><br>
+                    • "What are Sukhpreet's technical skills?"<br>
+                    • "Tell me about her projects"<br>
+                    • "What is her professional experience?"<br>
+                    • "Where did she study?"<br>
+                    • "How many certifications does she have?"<br>
+                    • "What awards has she won?"<br>
+                    • "Is she available for work?"<br>
+                    • "How can I contact her?"<br>
+                    • "Show me her GitHub"<br>
+                    • "What are her key strengths?"<br><br>
+                    You can also click on the suggestion chips below for quick information.`
+                };
+                
+                function addMessage(text, isUser = false) {
+                    const messageDiv = document.createElement('div');
+                    messageDiv.classList.add('message');
+                    messageDiv.classList.add(isUser ? 'user-message' : 'bot-message');
+                    
+                    if (isUser) {
+                        messageDiv.textContent = text;
+                    } else {
+                        messageDiv.innerHTML = text;
+                    }
+                    
+                    chatMessages.appendChild(messageDiv);
+                    chatMessages.scrollTop = chatMessages.scrollHeight;
+                    
+                    // Save to history
+                    saveToHistory(isUser ? 'user' : 'bot', text);
+                }
+                
+                function showTypingIndicator() {
+                    const typingDiv = document.createElement('div');
+                    typingDiv.classList.add('typing-indicator');
+                    typingDiv.id = 'typing-indicator';
+                    typingDiv.innerHTML = `
+                        <span>AI is thinking</span>
+                        <div class="typing-dot"></div>
+                        <div class="typing-dot"></div>
+                        <div class="typing-dot"></div>
+                    `;
+                    chatMessages.appendChild(typingDiv);
+                    chatMessages.scrollTop = chatMessages.scrollHeight;
+                }
+                
+                function hideTypingIndicator() {
+                    const typingIndicator = document.getElementById('typing-indicator');
+                    if (typingIndicator) {
+                        typingIndicator.remove();
+                    }
+                }
+                
+                // Smart response matching with context
+                function findBestMatch(message) {
+                    const lowerMessage = message.toLowerCase();
+                    
+                    // Context tracking for follow-up questions
+                    if (lowerMessage.includes('more') || lowerMessage.includes('else') || lowerMessage.includes('another')) {
+                        if (conversationContext.lastTopic) {
+                            return knowledgeBase[conversationContext.lastTopic] + "<br><br>Would you like to know more about any specific aspect?";
+                        }
+                    }
+                    
+                    // Track context for follow-ups
+                    if (lowerMessage.includes('skill') || lowerMessage.includes('technology') || lowerMessage.includes('technical') || 
+                        lowerMessage.includes('proficient') || lowerMessage.includes('expertise') || lowerMessage.includes('stack')) {
+                        conversationContext.lastTopic = 'skills';
+                        return knowledgeBase.skills;
+                    }
+                    
+                    if (lowerMessage.includes('project') || lowerMessage.includes('work sample') || lowerMessage.includes('portfolio') || 
+                        lowerMessage.includes('github') || lowerMessage.includes('code sample')) {
+                        conversationContext.lastTopic = 'projects';
+                        return knowledgeBase.projects;
+                    }
+                    
+                    if (lowerMessage.includes('experience') || lowerMessage.includes('job') || lowerMessage.includes('work history') || 
+                        lowerMessage.includes('professional') || lowerMessage.includes('background') || lowerMessage.includes('resume')) {
+                        conversationContext.lastTopic = 'experience';
+                        return knowledgeBase.experience;
+                    }
+                    
+                    if (lowerMessage.includes('education') || lowerMessage.includes('degree') || lowerMessage.includes('college') || 
+                        lowerMessage.includes('academic') || lowerMessage.includes('dean') || lowerMessage.includes('diploma') ||
+                        lowerMessage.includes('graduate') || lowerMessage.includes('study')) {
+                        conversationContext.lastTopic = 'education';
+                        return knowledgeBase.education;
+                    }
+                    
+                    if (lowerMessage.includes('contact') || lowerMessage.includes('email') || lowerMessage.includes('phone') || 
+                        lowerMessage.includes('reach') || lowerMessage.includes('linkedin') || lowerMessage.includes('connect')) {
+                        conversationContext.lastTopic = 'contact';
+                        return knowledgeBase.contact;
+                    }
+                    
+                    if (lowerMessage.includes('certification') || lowerMessage.includes('certificate') || lowerMessage.includes('cert') || 
+                        lowerMessage.includes('training') || lowerMessage.includes('qualification')) {
+                        conversationContext.lastTopic = 'certifications';
+                        return knowledgeBase.certifications;
+                    }
+                    
+                    if (lowerMessage.includes('strength') || lowerMessage.includes('asset') || lowerMessage.includes('benefit') || 
+                        lowerMessage.includes('advantage') || lowerMessage.includes('value') || lowerMessage.includes('why hire')) {
+                        conversationContext.lastTopic = 'strengths';
+                        return knowledgeBase.strengths;
+                    }
+                    
+                    if (lowerMessage.includes('available') || lowerMessage.includes('start date') || lowerMessage.includes('notice period') || 
+                        lowerMessage.includes('timeline') || lowerMessage.includes('when can she start') || lowerMessage.includes('hire')) {
+                        conversationContext.lastTopic = 'availability';
+                        return knowledgeBase.availability;
+                    }
+                    
+                    if (lowerMessage.includes('award') || lowerMessage.includes('recognition') || lowerMessage.includes('honor') || 
+                        lowerMessage.includes('achievement') || lowerMessage.includes('medal') || lowerMessage.includes('trophy')) {
+                        conversationContext.lastTopic = 'awards';
+                        return knowledgeBase.awards;
+                    }
+                    
+                    if (lowerMessage.includes('github') || lowerMessage.includes('repository') || lowerMessage.includes('repo') || 
+                        lowerMessage.includes('code') || lowerMessage.includes('programming')) {
+                        conversationContext.lastTopic = 'github';
+                        return knowledgeBase.github;
+                    }
+                    
+                    if (lowerMessage.includes('hello') || lowerMessage.includes('hi') || lowerMessage.includes('hey') || 
+                        lowerMessage.includes('introduce') || lowerMessage.includes('tell me about') || lowerMessage.includes('who is')) {
+                        return knowledgeBase.hello;
+                    }
+                    
+                    if (lowerMessage.includes('thank')) {
+                        return 'You\'re welcome! Is there anything else you\'d like to know about Sukhpreet? Feel free to ask about her skills, experience, or how she could contribute to your team.';
+                    }
+                    
+                    if (lowerMessage.includes('who are you')) {
+                        return 'I\'m an AI assistant designed to help you learn more about Sukhpreet Saini and how her skills and experience could benefit your organization. I can answer questions about her technical abilities, projects, certifications, and professional background.';
+                    }
+                    
+                    if (lowerMessage.includes('summary') || lowerMessage.includes('overview') || lowerMessage.includes('quick')) {
+                        return `Here's a quick overview of Sukhpreet:<br><br>
+                        <strong>🎓 Education:</strong> Advanced Diploma, Computer Programming & Analysis (Graduated with Distinction)<br>
+                        <strong>💼 Current:</strong> Application Programmer Analyst at Ontario Public Service<br>
+                        <strong>🏆 Achievements:</strong> 6x Dean's List, 50+ certifications, 50+ projects<br>
+                        <strong>🔧 Top Skills:</strong> Python, Java, JavaScript, SQL, React, Node.js, AI/ML<br>
+                        <strong>📍 Location:</strong> Barrie, ON (Open to relocation/remote)<br><br>
+                        Ask me for more details about any specific area!`;
+                    }
+                    
+                    return knowledgeBase.default;
+                }
+                
+                function processMessage(message) {
+                    // Simulate thinking with variable delay based on message complexity
+                    const thinkingTime = 800 + (message.length * 10);
+                    
+                    showTypingIndicator();
+                    setTimeout(() => {
+                        hideTypingIndicator();
+                        const response = findBestMatch(message);
+                        addMessage(response);
+                        
+                        // Ask for feedback after 3 exchanges
+                        if (chatHistory.length >= 6 && !feedbackGiven) {
+                            setTimeout(() => {
+                                addMessage("Was this information helpful? I'd love your feedback to improve!", false);
+                                feedbackGiven = true;
+                            }, 1000);
+                        }
+                    }, thinkingTime);
+                }
+                
+                function sendMessage() {
+                    const message = userInput.value.trim();
+                    if (message) {
+                        addMessage(message, true);
+                        userInput.value = '';
+                        processMessage(message);
+                    }
+                }
+                
+                // Add timestamp to messages
+                function addMessageWithTimestamp(text, isUser = false) {
+                    const timestamp = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+                    const messageDiv = document.createElement('div');
+                    messageDiv.classList.add('message');
+                    messageDiv.classList.add(isUser ? 'user-message' : 'bot-message');
+                    
+                    if (isUser) {
+                        messageDiv.textContent = text;
+                    } else {
+                        messageDiv.innerHTML = text;
+                    }
+                    
+                    // Add timestamp
+                    const timeSpan = document.createElement('div');
+                    timeSpan.style.fontSize = '0.6rem';
+                    timeSpan.style.opacity = '0.6';
+                    timeSpan.style.marginTop = '5px';
+                    timeSpan.style.textAlign = isUser ? 'right' : 'left';
+                    timeSpan.textContent = timestamp;
+                    messageDiv.appendChild(timeSpan);
+                    
+                    chatMessages.appendChild(messageDiv);
+                    chatMessages.scrollTop = chatMessages.scrollHeight;
+                    
+                    // Save to history
+                    saveToHistory(isUser ? 'user' : 'bot', text);
+                }
+                
+                // Override addMessage to use timestamp version
+                window.addMessage = addMessageWithTimestamp;
+                
+                // Event listeners
+                sendBtn.addEventListener('click', sendMessage);
+                userInput.addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter') sendMessage();
+                });
+                
+                // Suggestion chips functionality
+                suggestionChips.forEach(chip => {
+                    chip.addEventListener('click', () => {
+                        const question = chip.getAttribute('data-question');
+                        addMessageWithTimestamp(question, true);
+                        processMessage(question);
+                    });
+                });
+                
+                // Auto-expand chatbot when user starts typing
+                userInput.addEventListener('focus', () => {
+                    chatbotContainer.classList.add('expanded');
+                });
+                
+                // Load chat history on init
+                loadChatHistory();
+                
+                // Add quick actions after a short delay
+                setTimeout(addQuickActions, 1000);
+            }
         
         // Initialize chatbot when DOM is loaded
         document.addEventListener('DOMContentLoaded', initChatbot);

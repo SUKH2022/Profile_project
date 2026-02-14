@@ -85,7 +85,6 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // Skill Bar Animation
-// Skill Bar Animation
 document.addEventListener('DOMContentLoaded', function() {
     const skillItems = document.querySelectorAll('.skill-item');
     
@@ -210,3 +209,18 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(element);
     });
 });
+
+// Global function to clear chat history
+function clearChatHistory() {
+    const chatMessages = document.getElementById('chat-messages');
+    chatMessages.innerHTML = '';
+    
+    // Add welcome message
+    const welcomeDiv = document.createElement('div');
+    welcomeDiv.classList.add('message', 'bot-message');
+    welcomeDiv.innerHTML = "Hello! I'm your AI assistant. Ask me about Sukhpreet's skills, projects, or experience. I can help you learn why she'd be a great addition to your team!";
+    chatMessages.appendChild(welcomeDiv);
+    
+    // Clear localStorage
+    localStorage.removeItem('chatHistory');
+}

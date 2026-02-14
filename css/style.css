@@ -1366,6 +1366,72 @@ footer {
     }
 }
 
+/* Enhanced Chatbot Features */
+.chat-timestamp {
+    font-size: 0.6rem;
+    opacity: 0.6;
+    margin-top: 5px;
+}
+
+.chat-header-icons {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.chat-header-icons i {
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.chat-header-icons i:hover {
+    color: var(--dark-color);
+    transform: scale(1.1);
+}
+
+.quick-actions-container {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+#chatbot-container.expanded .quick-actions-container {
+    max-height: 200px;
+}
+
+.message strong {
+    color: var(--secondary-color);
+}
+
+.message a {
+    color: var(--secondary-color);
+    text-decoration: underline;
+    transition: all 0.3s ease;
+}
+
+.message a:hover {
+    color: var(--primary-color);
+}
+
+.feedback-request {
+    background: rgba(8, 253, 216, 0.1);
+    border-left: 3px solid var(--secondary-color);
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+}
+
+/* Typing indicator enhancement */
+.typing-indicator {
+    background: rgba(15, 15, 30, 0.3);
+    padding: 10px 15px;
+    border-radius: 15px;
+    align-self: flex-start;
+    margin-bottom: 10px;
+}
+
 /* ---------custom scrollbar--------- */
 ::-webkit-scrollbar{
     width: 15px;
