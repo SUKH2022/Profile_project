@@ -21,11 +21,11 @@ function opentab(tabname) {
     const tablinks = document.getElementsByClassName('tab-links');
     const tabcontents = document.getElementsByClassName('tab-contents');
     
-    for (tablink of tablinks) {
+    for (let tablink of tablinks) {
         tablink.classList.remove('active-link');
     }
     
-    for (tabcontent of tabcontents) {
+    for (let tabcontent of tabcontents) {
         tabcontent.classList.remove('active-tab');
     }
     
@@ -40,19 +40,13 @@ document.addEventListener('DOMContentLoaded', function() {
     certTabs.forEach(tab => {
         tab.addEventListener('click', function() {
             const tabType = this.getAttribute('data-tab');
-            
-            // Remove active class from all tabs
             certTabs.forEach(t => t.classList.remove('active'));
-            
-            // Add active class to clicked tab
             this.classList.add('active');
             
-            // Hide all cert contents
             document.querySelectorAll('.cert-content').forEach(content => {
                 content.classList.remove('active');
             });
             
-            // Show selected cert content
             document.getElementById(`${tabType}-certs`).classList.add('active');
         });
     });
@@ -65,10 +59,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     filterBtns.forEach(btn => {
         btn.addEventListener('click', function() {
-            // Remove active class from all buttons
-            filterBtns.forEach(btn => btn.classList.remove('active'));
-            
-            // Add active class to clicked button
+            filterBtns.forEach(b => b.classList.remove('active'));
             this.classList.add('active');
             
             const filter = this.getAttribute('data-filter');
@@ -98,7 +89,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     };
 
-    // Animate when skills section is in view
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -138,7 +128,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 behavior: 'smooth'
             });
             
-            // Close mobile menu if open
             if (window.innerWidth <= 768) {
                 closemenu();
             }
@@ -146,20 +135,19 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Typing Effect for Header Text
+// Typing Effect for Header Text — updated for new role
 document.addEventListener('DOMContentLoaded', function() {
     const typingText = document.querySelector('.typing-text');
     const texts = [
-        "Computer Programmer & Analyst",
-        "AI/ML Enthusiast",
-        "Data Specialist",
-        "Full Stack Developer",
+        "I&IT Senior Business Analyst",
+        "Business Analysis & Data Analytics",
+        "Process Automation Specialist",
+        "Quality Assurance Analyst",
         "Tech Innovator"
     ];
     let index = 0;
     let charIndex = 0;
     let isDeleting = false;
-    let isEnd = false;
     
     function type() {
         const currentText = texts[index];
@@ -173,15 +161,11 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         if (!isDeleting && charIndex === currentText.length) {
-            isEnd = true;
             isDeleting = true;
             setTimeout(type, 2000);
         } else if (isDeleting && charIndex === 0) {
             isDeleting = false;
-            index++;
-            if (index === texts.length) {
-                index = 0;
-            }
+            index = (index + 1) % texts.length;
             setTimeout(type, 500);
         } else {
             const speed = isDeleting ? 100 : 150;
@@ -215,12 +199,10 @@ function clearChatHistory() {
     const chatMessages = document.getElementById('chat-messages');
     chatMessages.innerHTML = '';
     
-    // Add welcome message
     const welcomeDiv = document.createElement('div');
     welcomeDiv.classList.add('message', 'bot-message');
-    welcomeDiv.innerHTML = "Hello! I'm your AI assistant. Ask me about Sukhpreet's skills, projects, or experience. I can help you learn why she'd be a great addition to your team!";
+    welcomeDiv.innerHTML = "Hello! I'm your AI assistant. Ask me about Sukhpreet's skills, projects, or experience as an I&IT Senior Business Analyst!";
     chatMessages.appendChild(welcomeDiv);
     
-    // Clear localStorage
     localStorage.removeItem('chatHistory');
 }

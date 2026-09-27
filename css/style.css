@@ -67,6 +67,28 @@ body {
         top: 20px;
         right: 20px;
     }
+    /* ============================================
+       HIDE GAME DEV SKILLS CATEGORY ON MOBILE
+       ============================================ */
+    .skills-category.game-dev-category,
+    .skills-category:has(h3 .fa-gamepad) {
+        display: none !important;
+    }
+
+    /* Also hide game-dev filter button on mobile */
+    .filter-btn[data-filter="game"] {
+        display: none;
+    }
+
+    /* Hide the tech icon row too on very small screens */
+    .tech-icons {
+        padding: 0.6rem 1rem;
+        gap: 0.4rem;
+    }
+
+    .tech-icons i {
+        font-size: 1.2rem;
+    }
 }
 
 .container {
@@ -320,9 +342,14 @@ nav ul li a:hover::after {
     transition: var(--transition);
 }
 
-.tech-icons i:hover {
+.tech-icons i:nth-child(even) {
     color: var(--primary-color);
-    transform: translateY(-5px);
+}
+
+.tech-icons i:hover {
+    color: var(--light-color);
+    transform: translateY(-5px) scale(1.15);
+    text-shadow: 0 0 10px currentColor;
 }
 
 .sub-title {
@@ -1442,4 +1469,54 @@ footer {
 ::-webkit-scrollbar-thumb{
     background: linear-gradient(#08fdd8, #000000);
     border-radius: 10px;
+}
+
+/* ============================================
+   RESPONSIVE FIXES FOR ICONS + GAME DEV SECTION
+   ============================================ */
+
+/* Tablet & small screens: hide game dev skills */
+@media only screen and (max-width: 900px) {
+    .skills-category.game-dev-category {
+        display: none;
+    }
+}
+
+/* Very small screens: hide game dev filter button */
+@media only screen and (max-width: 600px) {
+    .filter-btn[data-filter="game"] {
+        display: none;
+    }
+    
+    /* Ensure icons in tech-icons stay visible and colored */
+    .tech-icons i {
+        color: var(--secondary-color) !important;
+    }
+    .tech-icons i:nth-child(2n) {
+        color: var(--primary-color) !important;
+    }
+}
+
+/* Color correction for icons: make them pop against dark background */
+.skill-item span,
+.skills-category h3 i {
+    color: inherit;
+}
+
+.skills-category h3 i {
+    color: var(--secondary-color);
+}
+
+.skills-category:nth-child(even) h3 i {
+    color: var(--primary-color);
+}
+
+.stat-card i,
+.award-card i {
+    color: var(--secondary-color);
+}
+
+.stat-card:nth-child(even) i,
+.award-card:nth-child(even) i {
+    color: var(--primary-color);
 }
